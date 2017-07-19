@@ -1,0 +1,28 @@
+title: Packages
+pages: true
+  hide: true
+  template: package
+files: true
+fields:
+  title:
+    label: Title
+    type:  text
+    readonly: true
+  text:
+    label: Packages
+    type: subpagelist
+  lcheadline:
+    label: Love Club
+    type: headline
+  loveclub_header:
+    label: Header
+    type: text
+  loveclub_icon:
+    label: Icon
+    type: selector
+    mode: single
+    options:
+      - images
+  loveclub_text:
+    label: Description
+    type: textarea

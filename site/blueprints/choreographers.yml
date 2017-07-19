@@ -1,0 +1,12 @@
+title: Choreographers
+pages: true
+  hide: true
+  template: choreographer
+files: false
+fields:
+  title:
+    label: Title
+    type:  text
+  text:
+    label: Choreographers
+    type: subpagelist

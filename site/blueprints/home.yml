@@ -1,0 +1,49 @@
+title: Homepage
+pages: false
+files: true
+  fields:
+    caption:
+      type: text
+      label: Image Caption
+fields:
+  title:
+    type:  text
+    readonly: true
+  navOptions:
+    label: Navigation Options
+    type: structure
+    entry: ''
+    limit: 1
+    fields:
+      shopLink:
+        label: Shop URL
+        type: url
+        help: Leave this empty to hide the link in the navigation
+  contact:
+    label: Contact Information
+    type: structure
+    limit: 1
+    modalsize: large
+    entry: >
+      {{email}}<br>
+      {{phone}}<br>
+      {{address}}<br>
+    fields:
+      email:
+        label: Email Address
+        type: email
+        required: true
+        width: 1/2
+      phone:
+        label: Phone Number
+        type: tel
+        width: 1/2
+      address:
+        label: Address
+        type: text
+        required: true
+        width: 1/2
+      addressLink:
+        label: Address Link
+        type: url
+        width: 1/2

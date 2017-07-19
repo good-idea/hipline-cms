@@ -1,0 +1,87 @@
+title: Choreographer
+pages: false
+files: true
+  fields:
+    caption:
+      type: text
+      label: Caption / Alt Text
+fields:
+  title:
+    label: Choreographer Name
+    type:  text
+    required: true
+  cover_video:
+    label: Cover Video
+    type: selector
+    mode: single
+    autoselect: first
+    types:
+      - video
+    width: 1/2
+  cover_image:
+    label: Cover Image
+    type: selector
+    mode: single
+    autoselect: first
+    types:
+      - image
+    width: 1/2
+  bio:
+    label: Bio
+    type: textarea
+    buttons:
+      - italic
+      - bold
+  bio_links:
+    label: External Links
+    type: structure
+    entry: >
+      {{label}}
+    fields:
+      label:
+        label: Link Text
+        type: text
+        required: true
+      href:
+        label: Link URL
+        type: url
+        required: true
+  quote:
+    label: Quote
+    type: structure
+    entry: >
+      "{{body}}" - {{citation}}
+    limit: 1
+    fields:
+      body:
+        label: Quote Body
+        type: textarea
+        help: Don't include quotation marks here!
+      citation:
+        label: Citation
+        type: text
+  expectations:
+    label: Class expectations
+    type: textarea
+    buttons:
+      - italic
+      - bold
+  spotify_playlist:
+    label: Spotify Playlist
+    type: url
+  social:
+    type: structure
+    limit: 1
+    label: Social Media
+    fields:
+      twitter:
+        label: Twitter Handle
+        placeholder: @mytwitter
+        type: text
+      instagram:
+        label: Instagram Handle
+        placeholder: @myinstagram
+        type: text
+      facebook:
+        label: Facebook Profile URL
+        type: url

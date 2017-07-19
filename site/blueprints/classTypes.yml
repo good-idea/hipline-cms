@@ -1,0 +1,13 @@
+title: Class Types
+pages: true
+  hide: true
+  template: class
+files: false
+fields:
+  title:
+    label: Title
+    type:  text
+    readonly: true
+  text:
+    label: Class Types
+    type: subpagelist
