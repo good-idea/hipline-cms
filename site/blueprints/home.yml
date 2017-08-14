@@ -1,5 +1,6 @@
 title: Homepage
 pages: false
+preview: false
 files: true
   fields:
     caption:

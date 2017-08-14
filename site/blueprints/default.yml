@@ -1,4 +1,5 @@
 title: Page
+preview: false
 pages: true
   template: default
 files: true

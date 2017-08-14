@@ -31,4 +31,11 @@ of the system, please check out http://getkirby.com/docs/advanced/options
 
 c::set('panel.install', true);
 
+c::set('debug', true);
+c::set('cache', false);
+
 require_once(dirname(__FILE__) . DS . '..' . DS . 'routes.php');
+
+function consoleLog($input) {
+	file_put_contents("php://stdout", var_export($input, true) . "\n");
+}

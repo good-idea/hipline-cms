@@ -1,0 +1,140 @@
+title: Passes
+preview: false
+pages: true
+  template: pass
+files: true
+fields:
+  tab1:
+    type: tabs
+    label: General
+  title:
+    label: Page Title
+    type:  text
+    readonly: true
+  default_icon:
+    label: Default Pass Icon
+    type: selector
+    mode: single
+    autoselect: first
+    required: true
+    size: 3
+    types:
+      - image
+
+  newclientheader:
+    label: New Clients section
+    type: headline
+  newclienttitle:
+    label: Section Title
+    type: text
+  newclientdescription:
+    label: Description
+    type: text
+  newclientpasses:
+    label: Passes
+    type: structure
+    fields:
+      title:
+        label: Title
+        type: text
+      slug:
+        label: Pass
+        type: select
+        options: children
+      info:
+        type: info
+        help: >
+          Edit descriptions on the pass' page
+
+  bundlesheader:
+    type: headline
+    label: Bundles
+  bundlestitle:
+    label: Section Title
+    type: text
+  bundlesdescription:
+    label: Description
+    type: text
+  bundlespasses:
+    label: Passes
+    type: structure
+    fields:
+      title:
+        label: Title
+        type: text
+      slug:
+        label: Pass
+        type: select
+        options: children
+      info:
+        type: info
+        help: >
+          Edit descriptions on the pass' page
+
+  jprheader:
+    type: headline
+    label: Jungle Play Room
+  jprtitle:
+    label: Section Title
+    type: text
+  jprdescription:
+    label: Description
+    type: text
+  jprpasses:
+    label: Passes
+    type: structure
+    fields:
+      title:
+        label: Title
+        type: text
+      slug:
+        label: Pass
+        type: select
+        options: children
+      info:
+        type: info
+        help: >
+          Edit descriptions on the pass' page
+  workshopheader:
+    type: headline
+    label: Werkshops
+  workshoptitle:
+    label: Section Title
+    type: text
+  workshopdescription:
+    label: Description
+    type: text
+  workshoppasses:
+    label: Passes
+    type: structure
+    fields:
+      title:
+        label: Title
+        type: text
+      slug:
+        label: Pass
+        type: select
+        options: children
+      info:
+        type: info
+        help: >
+          Edit descriptions on the pass' page
+
+  lcheadline:
+    label: Love Club
+    type: headline
+  loveclub_header:
+    label: Header
+    type: text
+  loveclub_icon:
+    label: Icon
+    type: selector
+    mode: single
+    options:
+      - images
+  loveclub_text:
+    label: Description
+    type: textarea
+
+  tab2:
+    type: tabs

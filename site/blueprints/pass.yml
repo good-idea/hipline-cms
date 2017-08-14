@@ -1,0 +1,47 @@
+title: Pass
+pages: false
+preview: false
+files: true
+  fields:
+    caption:
+      type: text
+      label: Caption / Alt Text
+fields:
+  title:
+    label: Pass Title
+    type:  text
+    required: true
+    width: 1/2
+  mboid:
+    type: hidden
+  price:
+    label: Price
+    type: number
+    icon: dollar
+    readonly: true
+    width: 1/4
+  classcount:
+    label: Class Count
+    type: number
+    readonly: true
+    width: 1/4
+  icon_image:
+    label: Icon
+    type: selector
+    mode: single
+    autoselect: first
+    types:
+      - image
+  minidescription:
+    label: Mini Description
+    type: textarea
+    buttons: false
+    help: Displayed on the 'Classes' overview page
+  description:
+    label: Full Description
+    type: textarea
+    buttons:
+      - bold
+      - italic
+      - ul
+    help: Displayed in the user dashboard

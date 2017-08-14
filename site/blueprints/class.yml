@@ -1,5 +1,6 @@
 title: Class
 pages: false
+preview: false
 files: true
   fields:
     caption:
@@ -10,6 +11,8 @@ fields:
     label: Class Name
     type:  text
     required: true
+  mboid:
+    type: hidden
   cover_video:
     label: Cover Video
     type: selector
@@ -32,8 +35,10 @@ fields:
     buttons:
       - italic
       - bold
-  choreographers:
-    label: Choreographers (coming soon)
+    help: Leave empty to use the MBO Description
+  mbodescription:
+    label: MBO Description
+    type: textarea
     readonly: true
   quote:
     label: Quote
@@ -58,19 +63,3 @@ fields:
   spotify_playlist:
     label: Spotify Playlist
     type: url
-  social:
-    type: structure
-    limit: 1
-    label: Social Media
-    fields:
-      twitter:
-        label: Twitter Handle
-        placeholder: @mytwitter
-        type: text
-      instagram:
-        label: Instagram Handle
-        placeholder: @myinstagram
-        type: text
-      facebook:
-        label: Facebook Profile URL
-        type: url

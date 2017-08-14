@@ -1,0 +1,66 @@
+title: Info Page
+pages: false
+preview: false
+files: true
+fields:
+  title:
+    label: Title
+    type:  text
+  headline:
+    label: Headline
+    type: text
+  cover_image:
+    label: Cover Image
+    type: selector
+    size: 4
+    mode: single
+    types:
+      - image
+  intro:
+    label: Intro text
+    type: textarea
+    buttons:
+      - bold
+      - italic
+  blocks:
+    label: Info Blocks
+    type: structure
+    modalsize: large
+    entry: >
+      <strong>{{header}}</strong><br/>
+      {{body}}
+    fields:
+      header:
+        label: Block header
+        type: text
+      body:
+        label: Block body
+        type: textarea
+        buttons:
+          - bold
+          - italic
+  buttons:
+    label: Buttons
+    type: structure
+    entry: >
+      <strong>{{label}}</strong><br/>
+      <em>links to:</em> {{action}}
+    fields:
+      label:
+        label: Button Label
+        type: text
+        required: true
+      action:
+        label: Button Link
+        type: text
+        validate: relativeOrURL
+        help: Either a full external URL (http://...) or a relative internal URL starting with a slash (/classes/calendar)
+        required: true
+      type:
+        label: Button Style
+        type: select
+        options:
+          primary: Primary
+          secondary: Secondary
+        default: primary
+        required: true

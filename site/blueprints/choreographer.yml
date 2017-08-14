@@ -1,5 +1,6 @@
 title: Choreographer
 pages: false
+preview: false
 files: true
   fields:
     caption:
@@ -10,6 +11,17 @@ fields:
     label: Choreographer Name
     type:  text
     required: true
+    help: Use first name or nickname
+  mboid:
+    type: hidden
+  firstName:
+    label: First Name
+    type: text
+    width: 1/2
+  lastName:
+    label: Last Name
+    type: text
+    width: 1/2
   cover_video:
     label: Cover Video
     type: selector
@@ -32,6 +44,11 @@ fields:
     buttons:
       - italic
       - bold
+    help: Leave empty to use the MBO Description
+  mboBio:
+    label: MBO Bio
+    type: textarea
+    readonly: true
   bio_links:
     label: External Links
     type: structure

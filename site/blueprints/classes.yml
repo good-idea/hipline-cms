@@ -29,7 +29,6 @@ fields:
         label: Image
         type: select
         options: images
-
   subpages:
     label: Classes
     type: subpagelist

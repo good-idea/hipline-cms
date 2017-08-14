@@ -1,13 +1,13 @@
-title: Choreographers
+title: Section
 preview: false
 pages: true
   hide: true
-  template: choreographer
+  template: infoPage
 files: false
 fields:
   title:
     label: Title
     type:  text
-  text:
-    label: Choreographers
+  subpages:
+    label: Info Pages
     type: subpagelist
