@@ -18,6 +18,15 @@ class ChoreographerPage extends Page {
 		}
 		unset($content['mbobio']);
 		if (!array_key_exists('expectations', $content)) $content['expectations'] = '';
+		if (!array_key_exists('quote', $content)) {
+			$emptyQuote = new StdClass();
+			$emptyQuote->citation = '';
+			$emptyQuote->body = '';
+			$content['quote'] = $emptyQuote;
+		} else if (is_array($content['quote'])){
+			$content['quote'] = $content['quote'][0];
+		}
+
 		return $content;
 	}
 

@@ -4,7 +4,12 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false) {
 	$content = $page->content()->toArray();
 	$content['slug'] = $page->uid();
 	$content['id'] = $page->id();
-	if ($page->cover()) $content['cover'] = buildImage($page->cover());
+	if ($page->cover()) {
+		$content['cover'] = buildImage($page->cover());
+	}
+	if ($page->coverVideo()) {
+		$content['coverVideo'] = $page->coverVideo()->url();
+	}
 	// if ($page->getAllImageURLs()) $content['images'] = $page->getAllImageURLs();
 	$content['type'] = $page->intendedTemplate();
 
@@ -27,8 +32,12 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false) {
 	}
 	if (gettype($withChildren) === 'integer') $withChildren -= 1;
 
+	unset($content['cover_image']);
+	unset($content['cover_video']);
+
 	return $content;
 };
+
 
 page::$methods['cover'] = function($page) {
 	// if (!$page->cover_image()->exists()) return false;
@@ -39,10 +48,18 @@ page::$methods['cover'] = function($page) {
 		return $page->images()->first();
 	} else {
 		return false;
-		return site()->pages()->find('error')->images()->find('default_main_image.jpg');
 	}
 };
 
+page::$methods['coverVideo'] = function($page) {
+	// if (!$page->cover_image()->exists()) return false;
+	$video_str = (string)$page->cover_video();
+	if (null !== $page->files()->find($video_str)) {
+		return $page->files()->find($video_str);
+	} else {
+		return false;
+	}
+};
 
 // page::$methods['getAllImageURLs'] = function($page) {
 //
