@@ -33,6 +33,7 @@ c::set('routes', array(
       $content->choreographers = fetchPage('/choreographers', 1);
       $content->classes = fetchPage('/classes', 2);
       $content->community = fetchPage('/community', 1);
+      $content->about = fetchPage('/about', 1);
       return response::json(json_encode($content));
     }
   ),

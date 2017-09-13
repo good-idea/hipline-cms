@@ -4,3 +4,6 @@
 [submodule "panel"]
 	path = panel
 	url = https://github.com/getkirby/panel.git
+[submodule "site/plugins/field-engineer"]
+	path = site/plugins/field-engineer
+	url = https://github.com/jenstornell/field-engineer

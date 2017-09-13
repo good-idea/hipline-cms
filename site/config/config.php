@@ -39,3 +39,10 @@ require_once(dirname(__FILE__) . DS . '..' . DS . 'routes.php');
 function consoleLog($input) {
 	file_put_contents("php://stdout", var_export($input, true) . "\n");
 }
+
+/* AutoLogin plugin */
+
+c::set('autologin.username', 'joseph');
+c::set('autologin.password', 'password');
+c::set('autologin.host', '127.0.0.1');
+c::set('autologin.route', 'autologin');

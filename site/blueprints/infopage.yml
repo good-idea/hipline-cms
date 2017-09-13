@@ -18,10 +18,16 @@ fields:
       - image
   intro:
     label: Intro text
-    type: textarea
-    buttons:
+    type: markdown
+    header1: h2
+    tools:
+      - header1
       - bold
       - italic
+      - blockquote
+      - unorderedlist
+      - email
+      - link
   blocks:
     label: Info Blocks
     type: structure
@@ -33,12 +39,25 @@ fields:
       header:
         label: Block header
         type: text
+      cover_image:
+        label: Cover Image
+        type: selector
+        size: 4
+        mode: single
+        types:
+          - image
       body:
         label: Block body
-        type: textarea
-        buttons:
+        type: markdown
+        header1: h2
+        tools:
+          - header1
           - bold
           - italic
+          - blockquote
+          - unorderedlist
+          - email
+          - link
   buttons:
     label: Buttons
     type: structure
