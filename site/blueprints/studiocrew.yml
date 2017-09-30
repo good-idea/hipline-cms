@@ -1,0 +1,13 @@
+title: Studio Crew
+preview: false
+pages: true
+  hide: true
+  template: crewmember
+files: false
+fields:
+  title:
+    label: Title
+    type:  text
+  text:
+    label: Studio Crew
+    type: subpagelist

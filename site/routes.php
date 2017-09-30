@@ -1,7 +1,7 @@
 <?php
 
-function fetchPage($uri, $children = false) {
-  return kirby()->site()->pages()->findByURI($uri)->getPublicContent($children);
+function fetchPage($uri, $children = false, $onlyVisibleChildren = true) {
+  return kirby()->site()->pages()->findByURI($uri)->getPublicContent($children, $onlyVisibleChildren);
 }
 
 function getFilename($url) {
@@ -31,10 +31,18 @@ c::set('routes', array(
       $content = new StdClass();
       $content->home = fetchPage('/home');
       $content->choreographers = fetchPage('/choreographers', 1);
-      $content->classes = fetchPage('/classes', 2);
+      $content->classes = fetchPage('/classtypes', 2, false);
       $content->community = fetchPage('/community', 1);
       $content->about = fetchPage('/about', 1);
-      return response::json(json_encode($content));
+      try {
+				return response::json(json_encode($content));
+			} catch (Exception $e) {
+				consoleLog('*** Error ***');
+				consoleLog($e->getMessage());
+				consoleLog($e->getTraceAsString());
+				return response::json($e->getMessage());
+
+			}
     }
   ),
   array(
@@ -56,7 +64,7 @@ c::set('routes', array(
         $response = new StdClass();
         $response->added = array();
         $response->updated = array();
-        $passes = kirby()->site()->pages()->find('classes')->children()->find('passes');
+        $passes = kirby()->site()->pages()->find('passes');
         foreach ($_POST['passes'] as $MBOPass) {
           $passPage = $passes->children()->findBy('mboid', $MBOPass['ProductID']);
           if ($passPage) {
@@ -81,6 +89,10 @@ c::set('routes', array(
         }
         return response::json(json_encode($response));
       } catch (Exception $e) {
+				consoleLog('*** Error ***');
+				consoleLog($e->getMessage());
+				consoleLog($e->getTraceAsString());
+
         return response::json($e->getMessage());
       }
     }
@@ -94,74 +106,187 @@ c::set('routes', array(
         $response = new StdClass();
         $response->added = array();
         $response->updated = array();
-        $classes = kirby()->site()->pages()->find('classes')->children()->find('types');
-        foreach ($_POST['classes'] as $MBOClass) {
-          $classPage = $classes->children()->findBy('mboid', $MBOClass['ID']);
-          if ($classPage) {
-            $updatedContent = array();
-            if (array_key_exists('Description', $MBOClass)) $updatedContent['mbodescription'] = $MBOClass['Description'];
-            $classPage->update($updatedContent);
-            array_push($response->updated, $MBOClass['Name']);
-          } else {
-            $newContent = array();
-            if (array_key_exists('Description', $MBOClass)) $newContent['mbodescription'] = $MBOClass['Description'];
-            if (array_key_exists('Name', $MBOClass)) $newContent['title'] = $MBOClass['Name'];
-            if (array_key_exists('ID', $MBOClass)) $newContent['mboid'] = $MBOClass['ID'];
-            $newClassPage = kirby()->site()->pages()->create(
-              'classes/types/' . str::slug($MBOClass['Name']),
-              'class',
-              $newContent
-            );
-            array_push($response->added, $MBOClass['Name']);
-            if (array_key_exists('ImageURL', $MBOClass)) downloadImageToPage($newClassPage, $MBOClass['ImageURL']);
-          }
-        }
-        return response::json(json_encode($response));
-      } catch (Exception $e) {
-        return response::json($e->getMessage());
-      }
-    }
-  ),
+        $programs = kirby()->site()->pages()->find('classes');
 
-  array(
-    'method' => 'POST',
-    'pattern' => 'api/sync/staff',
-    'action' => function() {
-      try {
-        $response = new StdClass();
-        $response->added = array();
-        $response->updated = array();
-        $staff = kirby()->site()->pages()->find('choreographers');
-        foreach($_POST['staff'] as $staffMember) {
-          $staffMemberPage = $staff->children()->findBy('mboid', $staffMember['ID']);
-          if ($staffMemberPage) {
-            $updatedContent = array();
-            if (array_key_exists('Bio', $staffMember)) $updatedContent['mbobio'] = $staffMember['Bio'];
-            $staffMemberPage->update($updatedContent);
-            array_push($response->updated, $staffMember['Name']);
-          } else {
-            $firstName = $staffMember;
-            $newContent = array();
-            $newContent['mboid'] = $staffMember['ID'];
-            $newContent['title'] = $staffMember['Name'];
-            if (array_key_exists('Bio', $staffMember)) $newContent['mbobio'] = $staffMember['Bio'];
-            if (array_key_exists('FirstName', $staffMember)) $newContent['firstname'] = $staffMember['FirstName'];
-            if (array_key_exists('LastName', $staffMember)) $newContent['lastname'] = $staffMember['LastName'];
-            $newStaffMemberPage = kirby()->site()->pages()->create(
-              'choreographers/' . str::slug($staffMember['Name']),
-              'choreographer',
-              $newContent
-            );
-            if (array_key_exists('ImageURL', $staffMember)) downloadImageToPage($newStaffMemberPage, $staffMember['ImageURL']);
-            array_push($response->added, $staffMember['Name']);
-          }
-        }
-        return response::json(json_encode($response));
-      } catch (Exception $e) {
-        return response::json($e->getMessage());
-      }
-    }
-  )
-))
+				foreach ($_POST['classTypes'] as $program) {
+					$programPage = $programs->children()->findBy('mboid', $program['mboID']);
+					if (!$programPage) {
+						$programPage = kirby()->site()->pages()->create(
+							'classes/' . $program['slug'],
+							'classtype',
+							array(
+								'title' => $program['title'],
+								'mboid' => $program['mboID'],
+							)
+						);
+						array_push($response->added, (string)$programPage->title());
+					} else {
+						$programPage->update(array(
+							'title' => $program['title']
+						));
+					}
 
-?>
+					foreach ($program['classes'] as $class) {
+						$classPage = $programPage->children()->findBy('mboid', $class['ID']);
+						if (!$classPage) {
+							$newContent = array();
+							if (array_key_exists('Description', $class)) $newContent['mbodescription'] = $class['Description'];
+							if (array_key_exists('Name', $class)) $newContent['title'] = $class['Name'];
+							if (array_key_exists('ID', $class)) $newContent['mboid'] = $class['ID'];
+							consoleLog((string)$programPage->id());
+							$newClassPage = kirby()->site()->pages()->create(
+								(string)$programPage->id() . '/' . str::slug($class['Name']),
+								'class',
+								$newContent
+							);
+							array_push($response->added, $class['Name']);
+							if (array_key_exists('ImageURL', $class)) downloadImageToPage($newClassPage, $class['ImageURL']);
+						} else {
+							$updatedContent = array();
+							if (array_key_exists('Description', $MBOClass)) $updatedContent['mbodescription'] = $MBOClass['Description'];
+							$classPage->update($updatedContent);
+							array_push($response->updated, $MBOClass['Name']);
+						}
+					}
+				}
+				return response::json(json_encode($response));
+			} catch (Exception $e) {
+				consoleLog('*** Error ***');
+				consoleLog($e->getMessage());
+				consoleLog($e->getTraceAsString());
+				return response::json($e->getMessage());
+			}
+		}
+		),
+
+		array(
+		'method' => 'POST',
+		'pattern' => 'api/sync/staff',
+		'action' => function() {
+			try {
+				$response = new StdClass();
+				$response->added = array();
+				$response->updated = array();
+				$choreographers = kirby()->site()->pages()->find('choreographers');
+				$studiocrew = kirby()->site()->pages()->find('studiocrew');
+				foreach($_POST['staff'] as $staffMember) {
+					// if a staff member teaches classes, add them to choreographers
+					if (count(array_intersect(['classes', 'workshops', 'popups'], $staffMember['roles'])) > 0) {
+						$staffMemberPage = $choreographers->children()->findBy('mboid', $staffMember['ID']);
+						if ($staffMemberPage) {
+							$updatedContent = array();
+							if (array_key_exists('Bio', $staffMember)) $updatedContent['mbobio'] = $staffMember['Bio'];
+							if (array_key_exists('roles', $staffMember)) {
+								$existingRoles = explode(', ', $staffMemberPage->roles());
+								$incomingRoles = $staffMember['roles'];
+								// consoleLog($existingRoles);
+								// consoleLog($incomingRoles);
+								$updatedContent['roles'] = implode(', ',
+								array_filter(
+								array_unique(array_merge($existingRoles, $incomingRoles)),
+								function ($role) {
+									return strlen($role) > 0;
+								}
+								)
+								);
+							}
+							if (array_key_exists('classTypes', $staffMember)) {
+								$existingClassTypes = explode(', ', $staffMemberPage->classtypes());
+								$incomingClassTypes = $staffMember['classTypes'];
+								$updatedContent['classTypes'] = implode(', ',
+								array_filter(
+								array_unique(array_merge($existingRoles, $incomingRoles)),
+								function ($role) {
+									return strlen($role) > 0;
+								}
+								)
+								);
+
+							}
+							$staffMemberPage->update($updatedContent);
+							array_push($response->updated, $staffMember['Name']);
+						} else {
+							// Create a new choreographer
+							$firstName = $staffMember;
+							$newContent = array();
+							$newContent['mboid'] = $staffMember['ID'];
+							$newContent['title'] = $staffMember['Name'];
+							if (array_key_exists('Bio', $staffMember)) $newContent['mbobio'] = $staffMember['Bio'];
+							if (array_key_exists('FirstName', $staffMember)) $newContent['firstname'] = $staffMember['FirstName'];
+							if (array_key_exists('LastName', $staffMember)) $newContent['lastname'] = $staffMember['LastName'];
+
+							if (array_key_exists('roles', $staffMember)) {
+								$newContent['roles'] = implode(', ', $staffMember['roles']);
+							}
+							if (array_key_exists('classTypes', $staffMember)) {
+								$newContent['classtypes'] = implode(', ', $staffMember['classTypes']);
+							}
+							consoleLog('here');
+							$newStaffMemberPage = kirby()->site()->pages()->create(
+							'choreographers/' . str::slug($staffMember['Name']),
+							'choreographer',
+							$newContent
+							);
+							if (array_key_exists('ImageURL', $staffMember)) downloadImageToPage($newStaffMemberPage, $staffMember['ImageURL']);
+							array_push($response->added, $staffMember['Name']);
+
+						}
+					} else {
+						// Update a studio crew member
+
+						$staffMemberPage = $studiocrew->children()->findBy('mboid', $staffMember['ID']);
+						if ($staffMemberPage) {
+							$updatedContent = array();
+							if (array_key_exists('Bio', $staffMember)) $updatedContent['mbobio'] = $staffMember['Bio'];
+
+							if (array_key_exists('roles', $staffMember)) {
+								$existingRoles = explode(', ', $staffMemberPage->roles());
+								$incomingRoles = $staffMember['roles'];
+								$updatedContent['roles'] = implode(', ',
+								array_filter(
+								array_unique(array_merge($existingRoles, $incomingRoles)),
+								function ($role) {
+									return strlen($role) > 0;
+								}
+								)
+								);
+							}
+
+							$staffMemberPage->update($updatedContent);
+							array_push($response->updated, $staffMember['Name']);
+						} else {
+							// Make a new studio crew number
+
+							$firstName = $staffMember;
+							$newContent = array();
+							$newContent['mboid'] = $staffMember['ID'];
+							$newContent['title'] = $staffMember['Name'];
+							if (array_key_exists('Bio', $staffMember)) $newContent['mbobio'] = $staffMember['Bio'];
+							if (array_key_exists('FirstName', $staffMember)) $newContent['firstname'] = $staffMember['FirstName'];
+							if (array_key_exists('LastName', $staffMember)) $newContent['lastname'] = $staffMember['LastName'];
+							if (array_key_exists('roles', $staffMember)) {
+								$newContent['roles'] = implode(', ', $staffMember['roles']);
+							}
+
+							$newStaffMemberPage = kirby()->site()->pages()->create(
+							'studiocrew/' . str::slug($staffMember['Name']),
+							'crewmember',
+							$newContent
+							);
+							if (array_key_exists('ImageURL', $staffMember)) downloadImageToPage($newStaffMemberPage, $staffMember['ImageURL']);
+							array_push($response->added, $staffMember['Name']);
+						}
+					}
+				}
+				return response::json(json_encode($response));
+			} catch (Exception $e) {
+				consoleLog('*** Error ***');
+				consoleLog($e->getMessage());
+				consoleLog($e->getTraceAsString());
+				return response::error($e->getMessage(), 500);
+			}
+		}
+		)
+		))
+
+		?>

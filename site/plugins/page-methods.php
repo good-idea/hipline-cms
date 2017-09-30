@@ -1,9 +1,10 @@
 <?php
 
-page::$methods['getPublicContent'] = function($page, $withChildren = false) {
+page::$methods['getPublicContent'] = function($page, $withChildren = false, $onlyVisibleChildren = true) {
 	$content = $page->content()->toArray();
 	$content['slug'] = $page->uid();
 	$content['id'] = $page->id();
+	$content['isVisible'] = $page->isVisible();
 	if ($page->cover()) {
 		$content['cover'] = buildImage($page->cover());
 	}
@@ -21,10 +22,11 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false) {
 
 	if ($withChildren) {
 		$content['children'] = [];
-		$children = $page->children()->visible();
+		$children = $page->children();
+		if ($onlyVisibleChildren) $children = $children->visible();
 		if ($children->count() > 0) {
 			foreach ($children as $child) {
-				$childContent = $child->getPublicContent($withChildren);
+				$childContent = $child->getPublicContent($withChildren, $onlyVisibleChildren);
 				array_push($content['children'], $childContent);
 			}
 		}

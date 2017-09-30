@@ -11,7 +11,7 @@ fields:
     label: Choreographer Name
     type:  text
     required: true
-    help: Use first name or nickname
+    help: Use first name or nickname. This must match what is used in MBO
   mboid:
     type: hidden
   firstName:
@@ -38,6 +38,14 @@ fields:
     types:
       - image
     width: 1/2
+  classtypes:
+    label: Class Types
+    type: checkboxes
+    options:
+      playcare: Jungle Room Playcare
+      classes: Dance Classes
+      popups: Popups
+      workshops: Workshops
   bio:
     label: Bio
     type: textarea

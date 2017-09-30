@@ -11,6 +11,7 @@ class ClassPage extends Page {
 				$content['description'] = '';
 			}
 		}
+		$content['program'] = $this->parent()->getPublicContent();
 		unset($content['mbodescription']);
 		return $content;
 	}
