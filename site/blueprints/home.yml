@@ -48,3 +48,7 @@ fields:
         label: Address Link
         type: url
         width: 1/2
+  liability:
+    label: Liability Waiver
+    type: textarea
+    buttons: false
