@@ -23,6 +23,11 @@ function downloadImageToPage($page, $imageUrl) {
   fclose($fp);
 }
 
+
+c::set('headers', array(
+	header('Access-Control-Allow-Origin: *')
+));
+
 c::set('routes', array(
   array(
     'method' => 'GET',
