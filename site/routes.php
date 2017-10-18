@@ -29,6 +29,13 @@ c::set('headers', array(
 ));
 
 c::set('routes', array(
+	array(
+		'method' => 'GET',
+		'pattern' => '/',
+		'action' => function() {
+			return go('/panel');
+		}
+	),
   array(
     'method' => 'GET',
     'pattern' => 'api/initial',
@@ -161,8 +168,7 @@ c::set('routes', array(
 				consoleLog($e->getTraceAsString());
 				return response::json($e->getMessage());
 			}
-		}
-		),
+		}),
 
 		array(
 		'method' => 'POST',
@@ -292,6 +298,7 @@ c::set('routes', array(
 			}
 		}
 		)
-		))
+	))
 
-		?>
+
+?>
