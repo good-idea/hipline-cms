@@ -2,13 +2,24 @@ title: Class Types
 preview: false
 pages: true
   hide: true
-  template: class 
+  template: class
 files: false
 fields:
   title:
     label: Title
     type:  text
+    width: 3/4
+  mboid:
+    label: MBO Program ID
+    width: 1/4
     readonly: true
+  description:
+    label: Description
+    type: textarea
+    buttons:
+      - italic
+      - bold
+    help: A brief description of this type of offering
   text:
-    label: Class Types
+    label: Classes
     type: subpagelist

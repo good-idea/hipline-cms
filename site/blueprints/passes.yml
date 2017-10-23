@@ -120,10 +120,36 @@ fields:
         help: >
           Edit descriptions on the pass' page
 
-  lcheadline:
+  coworkheader:
+    type: headline
+    label: Werkshops
+  coworktitle:
+    label: Section Title
+    type: text
+  coworkdescription:
+    label: Description
+    type: text
+  coworkpasses:
+    label: Passes
+    type: structure
+    fields:
+      title:
+        label: Title
+        type: text
+      slug:
+        label: Pass
+        type: select
+        options: children
+      info:
+        type: info
+        help: >
+          Edit descriptions on the pass' page
+
+
+  loveclubheadline:
     label: Love Club
     type: headline
-  loveclub_header:
+  loveclubtitle:
     label: Header
     type: text
   loveclub_icon:
@@ -132,7 +158,7 @@ fields:
     mode: single
     options:
       - images
-  loveclub_text:
+  loveclubdescription:
     label: Description
     type: textarea
 

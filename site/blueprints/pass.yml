@@ -11,9 +11,13 @@ fields:
     label: Pass Title
     type:  text
     required: true
-    width: 1/2
   mboid:
     type: hidden
+  programid:
+    type: hidden
+  programname:
+    readonly: true
+    width: 1/4
   price:
     label: Price
     type: number

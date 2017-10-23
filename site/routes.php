@@ -23,7 +23,6 @@ function downloadImageToPage($page, $imageUrl) {
   fclose($fp);
 }
 
-
 c::set('headers', array(
 	header('Access-Control-Allow-Origin: *')
 ));
@@ -43,7 +42,8 @@ c::set('routes', array(
       $content = new StdClass();
       $content->home = fetchPage('/home');
       $content->choreographers = fetchPage('/choreographers', 1);
-      $content->classes = fetchPage('/classtypes', 2, false);
+			$content->classtypes = fetchPage('/classtypes', 2, false);
+			$content->passes = fetchPage('/passes', 2, false);
       $content->community = fetchPage('/community', 1);
       $content->about = fetchPage('/about', 1);
       try {
@@ -78,7 +78,7 @@ c::set('routes', array(
         $response->updated = array();
         $passes = kirby()->site()->pages()->find('passes');
         foreach ($_POST['passes'] as $MBOPass) {
-          $passPage = $passes->children()->findBy('mboid', $MBOPass['ProductID']);
+          $passPage = $passes->children()->findBy('mboid', $MBOPass['ID']);
           if ($passPage) {
             $updatedContent = array();
             if (array_key_exists('Count', $MBOPass)) $updatedContent['classcount'] = $MBOPass['Count'];
@@ -88,7 +88,8 @@ c::set('routes', array(
           } else {
             $newContent = array();
             if (array_key_exists('Name', $MBOPass)) $newContent['title'] = $MBOPass['Name'];
-            if (array_key_exists('ID', $MBOPass)) $newContent['mboid'] = $MBOPass['ProductID'];
+						if (array_key_exists('ID', $MBOPass)) $newContent['mboid'] = $MBOPass['ID'];
+						if (array_key_exists('ProgramID', $MBOPass)) $newContent['mboid'] = $MBOPass['ProgramID'];
             if (array_key_exists('Count', $MBOPass)) $newContent['classcount'] = $MBOPass['Count'];
             if (array_key_exists('Price', $MBOPass)) $newContent['price'] = $MBOPass['Price'];
             array_push($response->added, $MBOPass['Name']);
@@ -118,13 +119,13 @@ c::set('routes', array(
         $response = new StdClass();
         $response->added = array();
         $response->updated = array();
-        $programs = kirby()->site()->pages()->find('classes');
+        $programs = kirby()->site()->pages()->find('classtypes');
 
 				foreach ($_POST['classTypes'] as $program) {
 					$programPage = $programs->children()->findBy('mboid', $program['mboID']);
 					if (!$programPage) {
 						$programPage = kirby()->site()->pages()->create(
-							'classes/' . $program['slug'],
+							'classtypes/' . $program['slug'],
 							'classtype',
 							array(
 								'title' => $program['title'],
@@ -133,11 +134,11 @@ c::set('routes', array(
 						);
 						array_push($response->added, (string)$programPage->title());
 					} else {
+						consoleLog("OK");
 						$programPage->update(array(
 							'title' => $program['title']
 						));
 					}
-
 					foreach ($program['classes'] as $class) {
 						$classPage = $programPage->children()->findBy('mboid', $class['ID']);
 						if (!$classPage) {
@@ -155,9 +156,9 @@ c::set('routes', array(
 							if (array_key_exists('ImageURL', $class)) downloadImageToPage($newClassPage, $class['ImageURL']);
 						} else {
 							$updatedContent = array();
-							if (array_key_exists('Description', $MBOClass)) $updatedContent['mbodescription'] = $MBOClass['Description'];
+							if (array_key_exists('Description', $class)) $updatedContent['mbodescription'] = $class['Description'];
 							$classPage->update($updatedContent);
-							array_push($response->updated, $MBOClass['Name']);
+							array_push($response->updated, $class['Name']);
 						}
 					}
 				}

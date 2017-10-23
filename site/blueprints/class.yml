@@ -7,6 +7,9 @@ files: true
       type: text
       label: Caption / Alt Text
 fields:
+  tab1:
+    type: tabs
+    label: Class Info
   title:
     label: Class Name
     type:  text
@@ -63,3 +66,24 @@ fields:
   spotify_playlist:
     label: Spotify Playlist
     type: url
+  tab2:
+    label: Class Grouping
+    type: tabs
+  info:
+    type: info
+    text: Use this tab if you'd like to group similar classes into one section of the Class Descriptions page. For instance, all of the Hipline Technique classes should probably be displayed under a single heading.
+  isgroup:
+    type: switch
+    label: Active
+    help: Remember to make the class visible after you add it here!
+    texts:
+      - Group all of the classes below under this class.
+      - Grouping is disabled.
+  groupedclasses:
+    type: structure
+    label: Classes To Group
+    fields:
+      class:
+        type: select
+        options: siblings
+        required: true

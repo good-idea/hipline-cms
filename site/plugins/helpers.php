@@ -32,6 +32,12 @@ function buildImage($imageSource) {
 	return $image;
 }
 
+function smellsLikeInt($input) {
+	if (gettype($input) !== 'string') return false;
+	preg_match('/^[0-9]+$/', $input, $output);
+	// print_r($output);
+	return (count($output) > 0);
+}
 
 function smellsLikeYaml($input) {
 	if (gettype($input) !== 'string') return false;
