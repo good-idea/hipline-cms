@@ -42,10 +42,15 @@ function smellsLikeInt($input) {
 function smellsLikeYaml($input) {
 	if (gettype($input) !== 'string') return false;
 	if (strlen($input) === 0) return false;
-	$yamlArray = '/^-\s?\\n\s*[a-z]*:/';
+	$yamlArray = '/^-[\n\r\s]+[a-z]*:/';
 	preg_match($yamlArray, $input, $output);
 	return (count($output) > 0);
 };
+
+function smellsLikeBool($input) {
+	if ($input === 'true' || $input === 'false') return true;
+	return false;
+}
 
 
  ?>

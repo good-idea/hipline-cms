@@ -21,6 +21,9 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 		if (smellsLikeInt($value)) {
 			$content[$key] = (int)$value;
 		}
+		if (smellsLikeBool($value)) {
+			$content[$key] = ($value === 'true') ? true : false;
+		}
 	}
 
 	if ($withChildren) {
@@ -39,6 +42,7 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 
 	unset($content['cover_image']);
 	unset($content['cover_video']);
+
 
 	return $content;
 };

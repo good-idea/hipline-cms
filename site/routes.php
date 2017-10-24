@@ -43,7 +43,7 @@ c::set('routes', array(
       $content->home = fetchPage('/home');
       $content->choreographers = fetchPage('/choreographers', 1);
 			$content->classtypes = fetchPage('/classtypes', 2, false);
-			$content->passes = fetchPage('/passes', 2, false);
+			$content->sourcePasses = fetchPage('/passes', 2, false);
       $content->community = fetchPage('/community', 1);
       $content->about = fetchPage('/about', 1);
       try {

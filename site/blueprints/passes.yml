@@ -4,9 +4,6 @@ pages: true
   template: pass
 files: true
 fields:
-  tab1:
-    type: tabs
-    label: General
   title:
     label: Page Title
     type:  text
@@ -29,7 +26,10 @@ fields:
     type: text
   newclientdescription:
     label: Description
-    type: text
+    type: textarea
+    button:
+      - bold
+      - italic
   newclientpasses:
     label: Passes
     type: structure
@@ -54,7 +54,10 @@ fields:
     type: text
   bundlesdescription:
     label: Description
-    type: text
+    type: textarea
+    button:
+      - bold
+      - italic
   bundlespasses:
     label: Passes
     type: structure
@@ -79,7 +82,10 @@ fields:
     type: text
   jprdescription:
     label: Description
-    type: text
+    type: textarea
+    button:
+      - bold
+      - italic
   jprpasses:
     label: Passes
     type: structure
@@ -103,7 +109,10 @@ fields:
     type: text
   workshopdescription:
     label: Description
-    type: text
+    type: textarea
+    button:
+      - bold
+      - italic
   workshoppasses:
     label: Passes
     type: structure
@@ -122,13 +131,16 @@ fields:
 
   coworkheader:
     type: headline
-    label: Werkshops
+    label: Cowork
   coworktitle:
     label: Section Title
     type: text
   coworkdescription:
     label: Description
-    type: text
+    type: textarea
+    button:
+      - bold
+      - italic
   coworkpasses:
     label: Passes
     type: structure
@@ -160,7 +172,7 @@ fields:
       - images
   loveclubdescription:
     label: Description
-    type: textarea
-
-  tab2:
-    type: tabs
+    type: textareaarea
+    button:
+      - bold
+      - italic
