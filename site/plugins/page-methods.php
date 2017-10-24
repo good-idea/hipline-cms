@@ -18,8 +18,8 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 		if (smellsLikeYaml($value)) {
 			$content[$key] = yaml($value);
 		}
-		if (smellsLikeInt($value)) {
-			$content[$key] = (int)$value;
+		if (smellsLikeNum($value)) {
+			$content[$key] = floatval($value);
 		}
 		if (smellsLikeBool($value)) {
 			$content[$key] = ($value === 'true') ? true : false;

@@ -32,9 +32,9 @@ function buildImage($imageSource) {
 	return $image;
 }
 
-function smellsLikeInt($input) {
+function smellsLikeNum($input) {
 	if (gettype($input) !== 'string') return false;
-	preg_match('/^[0-9]+$/', $input, $output);
+	preg_match('/^[0-9,]+(.[0-9]+)?$/', $input, $output);
 	// print_r($output);
 	return (count($output) > 0);
 }
