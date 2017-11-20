@@ -35,7 +35,7 @@ fields:
     type: structure
     fields:
       title:
-        label: Title
+        label: Card Title
         type: text
       slug:
         label: Pass
@@ -63,7 +63,7 @@ fields:
     type: structure
     fields:
       title:
-        label: Title
+        label: Card Title
         type: text
       slug:
         label: Pass
@@ -91,7 +91,7 @@ fields:
     type: structure
     fields:
       title:
-        label: Title
+        label: Card Title
         type: text
       slug:
         label: Pass
@@ -118,7 +118,7 @@ fields:
     type: structure
     fields:
       title:
-        label: Title
+        label: Card Title
         type: text
       slug:
         label: Pass
@@ -146,7 +146,7 @@ fields:
     type: structure
     fields:
       title:
-        label: Title
+        label: Card Title
         type: text
       slug:
         label: Pass
@@ -172,7 +172,7 @@ fields:
       - images
   loveclubdescription:
     label: Description
-    type: textareaarea
+    type: textarea
     button:
       - bold
       - italic

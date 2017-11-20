@@ -72,42 +72,79 @@ c::set('routes', array(
     'method' => 'POST',
     'pattern' => 'api/sync/passes',
     'action' => function() {
-      try {
-        $response = new StdClass();
-        $response->added = array();
-        $response->updated = array();
-        $passes = kirby()->site()->pages()->find('passes');
-        foreach ($_POST['passes'] as $MBOPass) {
-          $passPage = $passes->children()->findBy('mboid', $MBOPass['ID']);
-          if ($passPage) {
-            $updatedContent = array();
-            if (array_key_exists('Count', $MBOPass)) $updatedContent['classcount'] = $MBOPass['Count'];
-            if (array_key_exists('Price', $MBOPass)) $updatedContent['price'] = $MBOPass['Price'];
-            $passPage->update($updatedContent);
-            array_push($response->updated, $MBOPass['Name']);
-          } else {
-            $newContent = array();
-            if (array_key_exists('Name', $MBOPass)) $newContent['title'] = $MBOPass['Name'];
-						if (array_key_exists('ID', $MBOPass)) $newContent['mboid'] = $MBOPass['ID'];
-						if (array_key_exists('ProgramID', $MBOPass)) $newContent['mboid'] = $MBOPass['ProgramID'];
-            if (array_key_exists('Count', $MBOPass)) $newContent['classcount'] = $MBOPass['Count'];
-            if (array_key_exists('Price', $MBOPass)) $newContent['price'] = $MBOPass['Price'];
-            array_push($response->added, $MBOPass['Name']);
-            $newPassPage = kirby()->site()->pages()->create(
-              'classes/passes/' . str::slug($MBOPass['Name']),
-              'pass',
-              $newContent
-            );
-          }
-        }
-        return response::json(json_encode($response));
-      } catch (Exception $e) {
-				consoleLog('*** Error ***');
-				consoleLog($e->getMessage());
-				consoleLog($e->getTraceAsString());
+			try {
 
-        return response::json($e->getMessage());
-      }
+				$response = new StdClass();
+				$response->added = array();
+				$response->updated = array();
+				$response->errors = array();
+				$passes = kirby()->site()->pages()->find('passes');
+
+
+				foreach ($_POST['passes'] as $MBOPass) {
+					$assignId = array_key_exists('ProductID', $MBOPass) ? $MBOPass['ProductID'] : "membership-" . (string)$MBOPass['ID'];
+					// consoleLog($assignId);
+					$passPage = $passes->children()->findBy('mboid', $assignId);
+					if (!$passPage) $passPage = $passes->children()->findBy('slug', str::slug($MBOPass['Name']));
+					if ($passPage) {
+						$updatedContent = array();
+						if (array_key_exists('Count', $MBOPass)) $updatedContent['classcount'] = $MBOPass['Count'];
+						if (array_key_exists('Price', $MBOPass)) $updatedContent['price'] = $MBOPass['Price'];
+						if (array_key_exists('Price', $MBOPass)) consoleLog($MBOPass['Price']);
+						if (array_key_exists('Duration', $MBOPass)) $updatedContent['duration'] = $MBOPass['Duration'];
+						if (array_key_exists('AgreementTerms', $MBOPass)) $updatedContent['agreementterms'] = $MBOPass['AgreementTerms'];
+						if (array_key_exists('NumberOfAutopays', $MBOPass)) $updatedContent['numberofautopays'] = $MBOPass['NumberOfAutopays'];
+						if (array_key_exists('RecurringPaymentAmountTotal', $MBOPass)) $updatedContent['RecurringPaymentAmountTotal'] = $MBOPass['RecurringPaymentAmountTotal'];
+						if (array_key_exists('FirstPaymentAmountTotal', $MBOPass)) $updatedContent['FirstPaymentAmountTotal'] = $MBOPass['FirstPaymentAmountTotal'];
+						if (array_key_exists('ContractIds', $MBOPass)) $updatedContent['contractids'] = $MBOPass['ContractIds'];
+						try {
+							$passPage->update($updatedContent);
+							array_push($response->updated, $MBOPass['Name']);
+						} catch (Exception $e) {
+							consoleLog('*** Error ***');
+							consoleLog($e->getMessage());
+							consoleLog($e->getTraceAsString());
+							array_push($response->errors, $e->getMessage());
+						}
+
+					} else {
+						$newContent = array();
+						$newContent['mboid'] = $assignId;
+						if (array_key_exists('Name', $MBOPass)) $newContent['title'] = $MBOPass['Name'];
+						if (array_key_exists('ProgramID', $MBOPass)) $newContent['mboprogramid'] = $MBOPass['ProgramID'];
+						if (array_key_exists('Count', $MBOPass)) $newContent['classcount'] = $MBOPass['Count'];
+						if (array_key_exists('Price', $MBOPass)) $newContent['price'] = $MBOPass['Price'];
+						if (array_key_exists('Duration', $MBOPass)) $newContent['duration'] = $MBOPass['Duration'];
+						if (array_key_exists('AgreementTerms', $MBOPass)) $newContent['agreementterms'] = $MBOPass['AgreementTerms'];
+						if (array_key_exists('NumberOfAutopays', $MBOPass)) $newContent['numberofautopays'] = $MBOPass['NumberOfAutopays'];
+						if (array_key_exists('RecurringPaymentAmountTotal', $MBOPass)) $newContent['RecurringPaymentAmountTotal'] = $MBOPass['RecurringPaymentAmountTotal'];
+						if (array_key_exists('FirstPaymentAmountTotal', $MBOPass)) $newContent['FirstPaymentAmountTotal'] = $MBOPass['FirstPaymentAmountTotal'];
+						if (array_key_exists('ContractIds', $MBOPass)) $newContent['contractids'] = $MBOPass['ContractIds'];
+						array_push($response->added, $MBOPass['Name']);
+						// consoleLog(str::slug($MBOPass['Name']));
+						// consoleLog($MBOPass['ID']);
+						try {
+							$newPassPage = kirby()->site()->pages()->create(
+								'passes/' . preg_replace('/^([0-9]+-)+/', '', str::slug($MBOPass['Name'])) . '-' . $assignId,
+								'pass',
+								$newContent
+							);
+						} catch (Exception $e) {
+							consoleLog('*** Error ***');
+							consoleLog($e->getMessage());
+							consoleLog($e->getTraceAsString());
+							array_push($response->errors, $e->getMessage() . ": " . $newContent['title'] . ' - ' . $assignId);
+						}
+					}
+				}
+				return response::json(json_encode($response));
+			} catch (Exception $e) {
+				// consoleLog('*** Error ***');
+				// consoleLog($e->getMessage());
+				// consoleLog($e->getTraceAsString());
+				// return response::json(json_encode($e->getMessage()));
+				return response::json('wtf');
+			}
     }
   ),
 
@@ -134,7 +171,6 @@ c::set('routes', array(
 						);
 						array_push($response->added, (string)$programPage->title());
 					} else {
-						consoleLog("OK");
 						$programPage->update(array(
 							'title' => $program['title']
 						));
