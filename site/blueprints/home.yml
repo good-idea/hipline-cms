@@ -10,16 +10,23 @@ fields:
   title:
     type:  text
     readonly: true
-  navOptions:
-    label: Navigation Options
-    type: structure
-    entry: ''
-    limit: 1
-    fields:
-      shopLink:
-        label: Shop URL
-        type: url
-        help: Leave this empty to hide the link in the navigation
+  intro:
+    label: Intro text
+    type: textarea
+    buttons:
+      - bold
+      - italic
+    type: textarea
+  # navOptions:
+  #   label: Navigation Options
+  #   type: structure
+  #   entry: ''
+  #   limit: 1
+  #   fields:
+  #     shopLink:
+  #       label: Shop URL
+  #       type: url
+  #       help: Leave this empty to hide the link in the navigation
   contact:
     label: Contact Information
     type: structure

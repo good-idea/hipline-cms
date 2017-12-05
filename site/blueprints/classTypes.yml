@@ -8,12 +8,6 @@ fields:
   title:
     label: Title
     type:  text
-  intro:
-    label: Intro text
-    type: textarea
-    buttons:
-      - bold
-      - italic
   subpages:
     label: Class Types
     type: subpagelist

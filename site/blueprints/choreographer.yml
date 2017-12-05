@@ -38,39 +38,6 @@ fields:
     types:
       - image
     width: 1/2
-  classtypes:
-    label: Class Types
-    type: checkboxes
-    options:
-      playcare: Jungle Room Playcare
-      classes: Dance Classes
-      popups: Popups
-      workshops: Workshops
-  bio:
-    label: Bio
-    type: textarea
-    buttons:
-      - italic
-      - bold
-    help: Leave empty to use the MBO Description
-  mboBio:
-    label: MBO Bio
-    type: textarea
-    readonly: true
-  bio_links:
-    label: External Links
-    type: structure
-    entry: >
-      {{label}}
-    fields:
-      label:
-        label: Link Text
-        type: text
-        required: true
-      href:
-        label: Link URL
-        type: url
-        required: true
   quote:
     label: Quote
     type: structure
@@ -85,15 +52,47 @@ fields:
       citation:
         label: Citation
         type: text
+  bio:
+    label: Bio
+    type: textarea
+    buttons:
+      - italic
+      - bold
+    help: Leave empty to use the MBO Description
+  mboBio:
+    label: MBO Bio
+    type: textarea
+    readonly: true
+  # bio_links:
+  #   label: External Links
+  #   type: structure
+  #   entry: >
+  #     {{label}}
+  #   fields:
+  #     label:
+  #       label: Link Text
+  #       type: text
+  #       required: true
+  #     href:
+  #       label: Link URL
+  #       type: url
+  #       required: true
   expectations:
     label: Class expectations
     type: textarea
     buttons:
       - italic
       - bold
+  musicians:
+    label: Example Bands/musicians
+    type: tags
+    index: template
+    max: 4
+    width: 1/2
   spotify_playlist:
-    label: Spotify Playlist
+    label: Sample Spotify Playlist
     type: url
+    width: 1/2
   social:
     type: structure
     limit: 1
