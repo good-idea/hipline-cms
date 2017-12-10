@@ -2,6 +2,7 @@ title: Choreographer
 pages: false
 preview: false
 files: true
+  size: 819200
   fields:
     caption:
       type: text
@@ -30,6 +31,7 @@ fields:
     types:
       - video
     width: 1/2
+    help: Recommended dimensions- 500 x 500, Filesize- less than 500k (800k max)
   cover_image:
     label: Cover Image
     type: selector
