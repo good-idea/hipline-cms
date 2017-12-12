@@ -55,7 +55,26 @@ fields:
         label: Address Link
         type: url
         width: 1/2
-  liability:
-    label: Liability Waiver
+  # liability:
+  #   label: Liability Waiver
+  #   type: textarea
+  #   buttons: false
+  footertext:
+    label: Footer Text
     type: textarea
     buttons: false
+  footersocial:
+    label: Footer Social Links
+    type: structure
+    limit: 1
+    modalsize: large
+    entry: >
+      Facebook: {{facebook}}<br>
+      Instagram: {{instagram}}<br>
+    fields:
+      facebook:
+        label: Facebook
+        type: url
+      instagram:
+        label: Instagram
+        type: url
