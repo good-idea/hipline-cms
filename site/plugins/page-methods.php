@@ -43,7 +43,6 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 	unset($content['cover_image']);
 	unset($content['cover_video']);
 
-
 	return $content;
 };
 

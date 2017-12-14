@@ -10,13 +10,22 @@ fields:
     label: Headline
     type: text
   cover_image:
-    label: Cover Image or Video
+    label: Cover Image
     type: selector
     size: 4
     mode: single
     types:
       - image
+    width: 1/2
+    help: The Cover Image will not be used if a cover video is selected
+  cover_video:
+    label: Cover Video
+    type: selector
+    size: 4
+    mode: single
+    types:
       - video
+    width: 1/2
   intro:
     label: Intro text
     type: markdown
