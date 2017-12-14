@@ -1,4 +1,4 @@
-title: Section
+title: Info Page
 preview: false
 pages: true
   hide: true
@@ -9,5 +9,5 @@ fields:
     label: Title
     type:  text
   subpages:
-    label: Info Pages
+    label: Info Sections
     type: subpagelist

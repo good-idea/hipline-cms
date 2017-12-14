@@ -1,6 +1,8 @@
 title: Site
 options:
   template: false
+pages:
+  template: section
 files: true
 fields:
   title:

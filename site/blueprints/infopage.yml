@@ -1,4 +1,4 @@
-title: Info Page
+title: Info Section
 pages: false
 preview: false
 files: true
@@ -25,7 +25,7 @@ fields:
       - bold
       - italic
       - blockquote
-      - unorderedlist
+      - unorderedList
       - email
       - link
   blocks:

@@ -44,8 +44,13 @@ c::set('routes', array(
       $content->choreographers = fetchPage('/choreographers', 1);
 			$content->classtypes = fetchPage('/classtypes', 2, false);
 			$content->sourcePasses = fetchPage('/passes', 2, false);
-      $content->community = fetchPage('/community', 1);
-      $content->about = fetchPage('/about', 1);
+			foreach(kirby()->site()->pages()->visible()->filterBy('intendedTemplate', 'section') as $infoPage) {
+				$slug = (string)$infoPage->slug();
+				$content->$slug = fetchPage($infoPage->uri(), 1);
+				// consoleLog((string)$infoPage->uri());
+			}
+      // $content->community = fetchPage('/community', 1);
+      // $content->about = fetchPage('/about', 1);
       try {
 				return response::json(json_encode($content));
 			} catch (Exception $e) {
