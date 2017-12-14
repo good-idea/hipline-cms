@@ -44,11 +44,9 @@ c::set('routes', array(
       $content->choreographers = fetchPage('/choreographers', 1);
 			$content->classtypes = fetchPage('/classtypes', 2, false);
 			$content->sourcePasses = fetchPage('/passes', 2, false);
-			foreach(kirby()->site()->pages()->visible()->filterBy('intendedTemplate', 'section') as $infoPage) {
-				$slug = (string)$infoPage->slug();
-				$content->$slug = fetchPage($infoPage->uri(), 1);
-				// consoleLog((string)$infoPage->uri());
-			}
+			$content->infoPages = array_map(function($page) {
+				return fetchPage((string)$page['uid'], 1);
+			}, kirby()->site()->pages()->visible()->filterBy('intendedTemplate', 'section')->toArray());
       // $content->community = fetchPage('/community', 1);
       // $content->about = fetchPage('/about', 1);
       try {
