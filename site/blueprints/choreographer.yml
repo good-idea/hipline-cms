@@ -61,10 +61,10 @@ fields:
       - italic
       - bold
     help: Leave empty to use the MBO Description
-  mboBio:
-    label: MBO Bio
-    type: textarea
-    readonly: true
+  # mboBio:
+  #   label: MBO Bio
+  #   type: textarea
+  #   readonly: true
   # bio_links:
   #   label: External Links
   #   type: structure
@@ -79,6 +79,10 @@ fields:
   #       label: Link URL
   #       type: url
   #       required: true
+  # classTypes:
+  #   label: Class Types
+  #   type: tags
+  #   index: template
   expectations:
     label: Class expectations
     type: textarea

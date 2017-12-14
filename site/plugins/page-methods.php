@@ -53,8 +53,8 @@ page::$methods['cover'] = function($page) {
 	$image_str = (string)$page->cover_image();
 	if (null !== $page->files()->find($image_str) && $page->files()->find($image_str)->width() > 0) {
 		return $page->files()->find($image_str);
-	} else if ($page->images()->count() > 0) {
-		return $page->images()->first();
+	// } else if ($page->images()->count() > 0) {
+	// 	return $page->images()->first();
 	} else {
 		return false;
 	}
