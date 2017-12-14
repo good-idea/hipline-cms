@@ -10,12 +10,13 @@ fields:
     label: Headline
     type: text
   cover_image:
-    label: Cover Image
+    label: Cover Image or Video
     type: selector
     size: 4
     mode: single
     types:
       - image
+      - video
   intro:
     label: Intro text
     type: markdown
