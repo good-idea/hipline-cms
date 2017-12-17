@@ -79,10 +79,10 @@ fields:
   #       label: Link URL
   #       type: url
   #       required: true
-  # classTypes:
-  #   label: Class Types
-  #   type: tags
-  #   index: template
+  classTypes:
+    label: Class Types
+    type: tags
+    index: template
   expectations:
     label: Class expectations
     type: textarea

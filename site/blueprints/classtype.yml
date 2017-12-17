@@ -13,18 +13,6 @@ fields:
     label: MBO Program ID
     width: 1/4
     readonly: true
-  # choreographers:
-  #   label: Choreographers
-  #   type: structure
-  #   structure:
-  #     choreographer:
-  #       type: select
-  #       query:
-  #         page: choreographers
-  #         fetch: children
-  #         value: '{{uid}}'
-  #         text: '{{title}}'
-
   description:
     label: Description
     type: textarea

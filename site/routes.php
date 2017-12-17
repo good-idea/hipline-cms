@@ -41,8 +41,8 @@ c::set('routes', array(
     'action' => function() {
       $content = new StdClass();
       $content->home = fetchPage('/home');
-      $content->choreographers = fetchPage('/choreographers', 1);
-			$content->classtypes = fetchPage('/classtypes', 2, false);
+      $content->choreographers = fetchPage('/choreographers', 1)['children'];
+			$content->classtypes = fetchPage('/classtypes', 2, true);
 			$content->sourcePasses = fetchPage('/passes', 2, false);
 			$content->infoPages = array_map(function($page) {
 				return fetchPage((string)$page['uid'], 1);
