@@ -107,8 +107,8 @@ fields:
     limit: 1
     label: Social Media
     entry: >
-      <strong>Twitter Handle:</strong> {{twitter}}
-      <strong>Instagram Handle:</strong> {{instagram}}
+      <strong>Twitter Handle:</strong> {{twitter}}<br>
+      <strong>Instagram Handle:</strong> {{instagram}}<br>
       <strong>Facebook URL:</strong> {{facebook}}
     fields:
       twitter:
