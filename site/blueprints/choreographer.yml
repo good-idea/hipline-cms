@@ -51,6 +51,7 @@ fields:
         label: Quote Body
         type: textarea
         help: Don't include quotation marks here!
+        maxLength:
       citation:
         label: Citation
         type: text
@@ -61,6 +62,7 @@ fields:
       - italic
       - bold
     help: Leave empty to use the MBO Description
+    maxLength: 650
   # mboBio:
   #   label: MBO Bio
   #   type: textarea
@@ -89,6 +91,7 @@ fields:
     buttons:
       - italic
       - bold
+    maxLength: 420
   musicians:
     label: Example Bands/musicians
     type: tags
@@ -103,6 +106,10 @@ fields:
     type: structure
     limit: 1
     label: Social Media
+    entry: >
+      <strong>Twitter Handle:</strong> {{twitter}}
+      <strong>Instagram Handle:</strong> {{instagram}}
+      <strong>Facebook URL:</strong> {{facebook}}
     fields:
       twitter:
         label: Twitter Handle

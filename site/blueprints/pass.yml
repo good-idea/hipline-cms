@@ -54,6 +54,7 @@ fields:
     type: textarea
     buttons: false
     help: Displayed on the 'Classes' overview page
+    maxLength: 60
   description:
     label: Full Description
     type: textarea
