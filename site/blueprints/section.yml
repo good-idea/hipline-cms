@@ -3,7 +3,7 @@ preview: false
 pages: true
   hide: true
   template: infoPage
-files: false
+files: true
 fields:
   title:
     label: Title
