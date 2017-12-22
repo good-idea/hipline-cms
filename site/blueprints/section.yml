@@ -15,7 +15,6 @@ fields:
     mode: single
     types:
       - image
-    help: The Cover Image will not be used if a cover video is selected
   subpages:
     label: Info Sections
     type: subpagelist
