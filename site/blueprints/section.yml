@@ -8,6 +8,15 @@ fields:
   title:
     label: Title
     type:  text
+  cover_image:
+    label: Cover Image
+    type: selector
+    size: 4
+    mode: single
+    types:
+      - image
+    width: 1/2
+    help: The Cover Image will not be used if a cover video is selected
   subpages:
     label: Info Sections
     type: subpagelist

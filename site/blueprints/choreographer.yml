@@ -98,6 +98,7 @@ fields:
     index: template
     max: 4
     width: 1/2
+    help: Limit to 5 items
   spotify_playlist:
     label: Sample Spotify Playlist
     type: url
