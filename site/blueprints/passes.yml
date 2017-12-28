@@ -1,7 +1,6 @@
 title: Passes
 preview: false
 pages: false
-  template: pass
 files: true
 fields:
   title:
