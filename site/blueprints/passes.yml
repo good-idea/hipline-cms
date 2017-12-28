@@ -34,7 +34,7 @@ fields:
     label: Passes
     type: structure
     entry: >
-      {{title}}<br>
+      {{title}} - {{price}}<br>
       {{description}}
     fields:
       title:
@@ -64,7 +64,7 @@ fields:
     label: Passes
     type: structure
     entry: >
-      {{title}}<br>
+      {{title}} - {{price}}<br>
       {{description}}
     fields:
       title:
@@ -94,7 +94,7 @@ fields:
     label: Passes
     type: structure
     entry: >
-      {{title}}<br>
+      {{title}} - {{price}}<br>
       {{description}}
     fields:
       title:
@@ -124,7 +124,7 @@ fields:
     label: Passes
     type: structure
     entry: >
-      {{title}}<br>
+      {{title}} - {{price}}<br>
       {{description}}
     fields:
       title:
@@ -160,7 +160,7 @@ fields:
     label: Passes
     type: structure
     entry: >
-      {{title}}<br>
+      {{title}} - {{price}}<br>
       {{description}}
     fields:
       title:
