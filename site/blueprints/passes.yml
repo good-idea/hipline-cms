@@ -33,6 +33,8 @@ fields:
   newclientpasses:
     label: Passes
     type: structure
+    entry: >
+      {{title}}
     fields:
       title:
         label: Card Title
@@ -61,6 +63,8 @@ fields:
   bundlespasses:
     label: Passes
     type: structure
+    entry: >
+      {{title}}
     fields:
       title:
         label: Card Title
@@ -89,6 +93,8 @@ fields:
   jprpasses:
     label: Passes
     type: structure
+    entry: >
+      {{title}}
     fields:
       title:
         label: Card Title
@@ -116,6 +122,9 @@ fields:
   workshoppasses:
     label: Passes
     type: structure
+    entry: >
+      {{title}}<br>
+      {{description}}
     fields:
       title:
         label: Card Title
@@ -124,10 +133,11 @@ fields:
         label: Pass
         type: select
         options: children
-      info:
-        type: info
-        help: >
-          Edit descriptions on the pass' page
+      price:
+        type: number
+      description:
+        type: textarea
+        buttons: true
 
   loveclubheadline:
     label: Love Club
@@ -147,3 +157,21 @@ fields:
     button:
       - bold
       - italic
+  loveclubpasses:
+    label: Passes
+    type: structure
+    entry: >
+      {{title}}
+    fields:
+      title:
+        label: Card Title
+        type: text
+      slug:
+        label: Pass
+        type: select
+        options: children
+      info:
+        type: info
+        help: >
+          Edit descriptions on the pass' page
+
