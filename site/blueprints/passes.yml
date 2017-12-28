@@ -37,7 +37,7 @@ fields:
       buybutton:
         label: Buy button
         type: switch
-        default: on
+        default: true
         texts:
          - Button is visible
          - Button is hidden
@@ -72,7 +72,7 @@ fields:
       buybutton:
         label: Buy button
         type: switch
-        default: on
+        default: true
         texts:
          - Button is visible
          - Button is hidden
@@ -107,7 +107,7 @@ fields:
       buybutton:
         label: Buy button
         type: switch
-        default: on
+        default: true
         texts:
          - Button is visible
          - Button is hidden
@@ -142,7 +142,7 @@ fields:
       buybutton:
         label: Buy button
         type: switch
-        default: on
+        default: true
         texts:
          - Button is visible
          - Button is hidden
@@ -177,7 +177,7 @@ fields:
       buybutton:
         label: Buy button
         type: switch
-        default: on
+        default: true
         texts:
          - Button is visible
          - Button is hidden
