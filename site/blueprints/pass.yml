@@ -29,9 +29,8 @@ fields:
     width: 1/4
     type: hidden
   displayPrice:
-    label: Display Price
+    label: Price
     width: 1/4
-    help: Overrides MBO price in description
   classcount:
     label: Class Count
     readonly: true
