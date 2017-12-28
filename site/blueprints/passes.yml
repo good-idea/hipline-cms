@@ -31,10 +31,11 @@ fields:
       - bold
       - italic
   newclientpasses:
-    label: Passes
+   label: Passes
     type: structure
     entry: >
-      {{title}}
+      {{title}}<br>
+      {{description}}
     fields:
       title:
         label: Card Title
@@ -43,10 +44,11 @@ fields:
         label: Pass
         type: select
         options: children
-      info:
-        type: info
-        help: >
-          Edit descriptions on the pass' page
+      price:
+        type: number
+      description:
+        type: textarea
+        buttons: true
 
   bundlesheader:
     type: headline
@@ -64,7 +66,8 @@ fields:
     label: Passes
     type: structure
     entry: >
-      {{title}}
+      {{title}}<br>
+      {{description}}
     fields:
       title:
         label: Card Title
@@ -73,10 +76,11 @@ fields:
         label: Pass
         type: select
         options: children
-      info:
-        type: info
-        help: >
-          Edit descriptions on the pass' page
+      price:
+        type: number
+      description:
+        type: textarea
+        buttons: true
 
   jprheader:
     type: headline
@@ -91,10 +95,11 @@ fields:
       - bold
       - italic
   jprpasses:
-    label: Passes
+   label: Passes
     type: structure
     entry: >
-      {{title}}
+      {{title}}<br>
+      {{description}}
     fields:
       title:
         label: Card Title
@@ -103,10 +108,12 @@ fields:
         label: Pass
         type: select
         options: children
-      info:
-        type: info
-        help: >
-          Edit descriptions on the pass' page
+      price:
+        type: number
+      description:
+        type: textarea
+        buttons: true
+
   workshopheader:
     type: headline
     label: Werkshops
@@ -161,7 +168,8 @@ fields:
     label: Passes
     type: structure
     entry: >
-      {{title}}
+      {{title}}<br>
+      {{description}}
     fields:
       title:
         label: Card Title
@@ -170,8 +178,8 @@ fields:
         label: Pass
         type: select
         options: children
-      info:
-        type: info
-        help: >
-          Edit descriptions on the pass' page
-
+      price:
+        type: number
+      description:
+        type: textarea
+        buttons: true
