@@ -42,11 +42,11 @@ c::set('routes', array(
       $content = new StdClass();
       $content->home = fetchPage('/home');
       $content->choreographers = fetchPage('/choreographers', 1)['children'];
-			$content->classtypes = fetchPage('/classtypes', 2, true);
-			$content->sourcePasses = fetchPage('/passes', 2, false);
-			$content->infoPages = array_map(function($page) {
-				return fetchPage((string)$page['uid'], 1);
-			}, kirby()->site()->pages()->visible()->filterBy('intendedTemplate', 'section')->toArray());
+		$content->classtypes = fetchPage('/classtypes', 2, true);
+		$content->sourcePasses = fetchPage('/passes', 1, false);
+		$content->infoPages = array_map(function($page) {
+			return fetchPage((string)$page['uid'], 1);
+		}, kirby()->site()->pages()->visible()->filterBy('intendedTemplate', 'section')->toArray());
       // $content->community = fetchPage('/community', 1);
       // $content->about = fetchPage('/about', 1);
       try {
