@@ -34,6 +34,12 @@ fields:
         label: MBO link for Buy Button
         type: url
         help: Optional, falls back to main Passes MBO page if not supplied.
+      buybutton:
+        label: Buy button
+        type: switch
+        texts:
+         - Button is visible
+         - Button is hidden
 
   bundlesheader:
     type: headline
@@ -62,6 +68,12 @@ fields:
         label: MBO link for Buy Button
         type: url
         help: Optional, falls back to main Passes MBO page if not supplied.
+      buybutton:
+        label: Buy button
+        type: switch
+        texts:
+         - Button is visible
+         - Button is hidden
 
   jprheader:
     type: headline
@@ -90,6 +102,12 @@ fields:
         label: MBO link for Buy Button
         type: url
         help: Optional, falls back to main Passes MBO page if not supplied.
+      buybutton:
+        label: Buy button
+        type: switch
+        texts:
+         - Button is visible
+         - Button is hidden
 
   workshopheader:
     type: headline
@@ -118,6 +136,12 @@ fields:
         label: MBO link for Buy Button
         type: url
         help: Optional, falls back to main Passes MBO page if not supplied.
+      buybutton:
+        label: Buy button
+        type: switch
+        texts:
+         - Button is visible
+         - Button is hidden
 
   loveclubheadline:
     label: Love Club
@@ -146,3 +170,9 @@ fields:
         label: MBO link for Buy Button
         type: url
         help: Optional, falls back to main Passes MBO page if not supplied.
+      buybutton:
+        label: Buy button
+        type: switch
+        texts:
+         - Button is visible
+         - Button is hidden
