@@ -30,6 +30,10 @@ fields:
         label: Description
         type: textarea
         buttons: true
+      mbolink:
+        label: MBO link for Buy Button
+        type: url
+        help: Optional, falls back to main Passes MBO page if not supplied.
 
   bundlesheader:
     type: headline
@@ -54,6 +58,10 @@ fields:
         label: Description
         type: textarea
         buttons: true
+      mbolink:
+        label: MBO link for Buy Button
+        type: url
+        help: Optional, falls back to main Passes MBO page if not supplied.
 
   jprheader:
     type: headline
@@ -78,6 +86,10 @@ fields:
         label: Description
         type: textarea
         buttons: true
+      mbolink:
+        label: MBO link for Buy Button
+        type: url
+        help: Optional, falls back to main Passes MBO page if not supplied.
 
   workshopheader:
     type: headline
@@ -102,6 +114,10 @@ fields:
         label: Description
         type: textarea
         buttons: true
+      mbolink:
+        label: MBO link for Buy Button
+        type: url
+        help: Optional, falls back to main Passes MBO page if not supplied.
 
   loveclubheadline:
     label: Love Club
@@ -126,3 +142,7 @@ fields:
         label: Description
         type: textarea
         buttons: true
+      mbolink:
+        label: MBO link for Buy Button
+        type: url
+        help: Optional, falls back to main Passes MBO page if not supplied.
