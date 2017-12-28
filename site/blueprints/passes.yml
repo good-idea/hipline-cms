@@ -129,35 +129,6 @@ fields:
         help: >
           Edit descriptions on the pass' page
 
-  coworkheader:
-    type: headline
-    label: Cowork
-  coworktitle:
-    label: Section Title
-    type: text
-  coworkdescription:
-    label: Description
-    type: textarea
-    button:
-      - bold
-      - italic
-  coworkpasses:
-    label: Passes
-    type: structure
-    fields:
-      title:
-        label: Card Title
-        type: text
-      slug:
-        label: Pass
-        type: select
-        options: children
-      info:
-        type: info
-        help: >
-          Edit descriptions on the pass' page
-
-
   loveclubheadline:
     label: Love Club
     type: headline
