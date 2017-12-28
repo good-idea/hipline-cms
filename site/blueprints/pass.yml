@@ -7,9 +7,6 @@ files: true
       type: text
       label: Caption / Alt Text
 fields:
-  tab1:
-    type: tabs
-    label: General
   title:
     label: Pass Title
     type:  text
@@ -50,39 +47,8 @@ fields:
     types:
       - image
   minidescription:
-    label: Mini Description
+    label: Description
     type: textarea
     buttons: false
-    help: Displayed on the 'Classes' overview page
     maxLength: 60
-  description:
-    label: Full Description
-    type: textarea
-    buttons:
-      - bold
-      - italic
-      - ul
-    help: Displayed in the user dashboard
-  tab2:
-    type: tabs
-    label: Contracts
-  numberofautopays:
-    readonly: true
-    width: 1/4
-    label: Number of Autopays
-  RecurringPaymentAmountTotal:
-    readonly: true
-    width: 1/4
-    label: Recurring Payment
-  FirstPaymentAmountTotal:
-    readonly: true
-    width: 1/4
-    label: First Payment
-  contractids:
-    type: hidden
-    label: MBO Contract ID
-    readonly: true
-  agreementterms:
-    type: textarea
-    readonly: true
-    help: Agreement terms must be updated in the MBO Admin.
+
