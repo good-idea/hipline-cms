@@ -27,7 +27,7 @@ fields:
     icon: dollar
     readonly: true
     width: 1/4
-    type: hidden;
+    type: hidden
   displayPrice:
     label: Display Price
     width: 1/4
@@ -36,15 +36,12 @@ fields:
     label: Class Count
     readonly: true
     width: 1/4
-    type: hidden;
+    type: hidden
   duration:
     label: Pass Duration
     readonly: true
     width: 1/4
-<<<<<<< HEAD
-    type: hidden;
-=======
->>>>>>> 2d75be0c95a4fd32c15729410aa2e21048e14f50
+    type: hidden
   minidescription:
     label: Description
     type: textarea
