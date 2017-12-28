@@ -41,7 +41,10 @@ fields:
     label: Pass Duration
     readonly: true
     width: 1/4
+<<<<<<< HEAD
     type: hidden;
+=======
+>>>>>>> 2d75be0c95a4fd32c15729410aa2e21048e14f50
   minidescription:
     label: Description
     type: textarea
