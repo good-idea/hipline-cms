@@ -40,10 +40,6 @@ fields:
       title:
         label: Card Title
         type: text
-      slug:
-        label: Pass
-        type: select
-        options: children
       price:
         label: Price
         type: number
@@ -75,10 +71,6 @@ fields:
       title:
         label: Card Title
         type: text
-      slug:
-        label: Pass
-        type: select
-        options: children
       price:
         label: Price
         type: number
@@ -110,10 +102,6 @@ fields:
       title:
         label: Card Title
         type: text
-      slug:
-        label: Pass
-        type: select
-        options: children
       price:
         label: Price
         type: number
@@ -145,10 +133,6 @@ fields:
       title:
         label: Card Title
         type: text
-      slug:
-        label: Pass
-        type: select
-        options: children
       price:
         label: Price
         type: number
@@ -186,10 +170,6 @@ fields:
       title:
         label: Card Title
         type: text
-      slug:
-        label: Pass
-        type: select
-        options: children
       price:
         label: Price
         type: number
