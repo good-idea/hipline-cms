@@ -39,13 +39,6 @@ fields:
     label: Pass Duration
     readonly: true
     width: 1/4
-  icon_image:
-    label: Icon
-    type: selector
-    mode: single
-    autoselect: first
-    types:
-      - image
   minidescription:
     label: Description
     type: textarea
