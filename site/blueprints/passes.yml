@@ -1,6 +1,6 @@
 title: Passes
 preview: false
-pages: true
+pages: false
   template: pass
 files: true
 fields:
@@ -120,18 +120,6 @@ fields:
   loveclubtitle:
     label: Header
     type: text
-  # loveclub_icon:
-  #   label: Icon
-  #   type: selector
-  #   mode: single
-  #   options:
-  #     - images
-  loveclubdescription:
-    label: Description
-    type: textarea
-    button:
-      - bold
-      - italic
   loveclubpasses:
     label: Passes
     type: structure
