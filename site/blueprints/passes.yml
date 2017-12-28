@@ -24,12 +24,6 @@ fields:
   newclienttitle:
     label: Section Title
     type: text
-  newclientdescription:
-    label: Description
-    type: textarea
-    button:
-      - bold
-      - italic
   newclientpasses:
     label: Passes
     type: structure
@@ -54,12 +48,6 @@ fields:
   bundlestitle:
     label: Section Title
     type: text
-  bundlesdescription:
-    label: Description
-    type: textarea
-    button:
-      - bold
-      - italic
   bundlespasses:
     label: Passes
     type: structure
@@ -84,12 +72,6 @@ fields:
   jprtitle:
     label: Section Title
     type: text
-  jprdescription:
-    label: Description
-    type: textarea
-    button:
-      - bold
-      - italic
   jprpasses:
     label: Passes
     type: structure
@@ -114,12 +96,6 @@ fields:
   workshoptitle:
     label: Section Title
     type: text
-  workshopdescription:
-    label: Description
-    type: textarea
-    button:
-      - bold
-      - italic
   workshoppasses:
     label: Passes
     type: structure
