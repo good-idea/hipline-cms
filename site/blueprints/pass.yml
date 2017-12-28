@@ -45,6 +45,5 @@ fields:
   minidescription:
     label: Description
     type: textarea
-    buttons: false
     maxLength: 60
 
