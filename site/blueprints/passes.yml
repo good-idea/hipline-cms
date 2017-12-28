@@ -45,8 +45,11 @@ fields:
         type: select
         options: children
       price:
+        label: Price
         type: number
+        icon: dollar
       description:
+        label: Description
         type: textarea
         buttons: true
 
@@ -77,8 +80,11 @@ fields:
         type: select
         options: children
       price:
+        label: Price
         type: number
+        icon: dollar
       description:
+        label: Description
         type: textarea
         buttons: true
 
@@ -109,8 +115,11 @@ fields:
         type: select
         options: children
       price:
+        label: Price
         type: number
+        icon: dollar
       description:
+        label: Description
         type: textarea
         buttons: true
 
@@ -141,8 +150,11 @@ fields:
         type: select
         options: children
       price:
+        label: Price
         type: number
+        icon: dollar
       description:
+        label: Description
         type: textarea
         buttons: true
 
@@ -179,7 +191,10 @@ fields:
         type: select
         options: children
       price:
+        label: Price
         type: number
+        icon: dollar
       description:
+        label: Description
         type: textarea
         buttons: true
