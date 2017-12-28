@@ -31,7 +31,7 @@ fields:
       - bold
       - italic
   newclientpasses:
-   label: Passes
+    label: Passes
     type: structure
     entry: >
       {{title}}<br>
@@ -95,7 +95,7 @@ fields:
       - bold
       - italic
   jprpasses:
-   label: Passes
+    label: Passes
     type: structure
     entry: >
       {{title}}<br>
