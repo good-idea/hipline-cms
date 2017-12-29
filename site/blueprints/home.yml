@@ -31,7 +31,7 @@ fields:
     label: Announcement Link Text
     type: text
     maxLength: 25
-    width: 1/4  
+    width: 1/4 
   announcementurl:
     label: Announcement Link URL
     type: url
