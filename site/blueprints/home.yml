@@ -27,15 +27,10 @@ fields:
      - bold
      - italic
     maxLength: 125
-  announcementcta:
-    label: Announcement Link Text
-    type: text
-    maxLength: 25
-    width: 1/4 
   announcementurl:
-    label: Announcement Link URL
-    type: url
-    width: 3/4
+    type: text
+    validate: relativeOrURL
+    help: Either a full external URL (https://...) or a relative internal URL starting with a slash (/classes)
   contact:
     label: Contact Information
     type: structure
