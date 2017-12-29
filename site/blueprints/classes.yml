@@ -8,9 +8,6 @@ fields:
   title:
     label: Title
     type:  text
-  subpages:
-    label: Class Types
-    type: subpagelist
   intro:
     label: Intro text
     type: textarea
@@ -18,3 +15,6 @@ fields:
       - bold
       - italic
     type: textarea
+  subpages:
+    label: Class Types
+    type: subpagelist
