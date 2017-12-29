@@ -10,13 +10,6 @@ fields:
   title:
     type:  text
     readonly: true
-  intro:
-    label: Intro text
-    type: textarea
-    buttons:
-      - bold
-      - italic
-    type: textarea
   # navOptions:
   #   label: Navigation Options
   #   type: structure
@@ -27,6 +20,22 @@ fields:
   #       label: Shop URL
   #       type: url
   #       help: Leave this empty to hide the link in the navigation
+  announcement:
+    label: Announcement Body
+    type: textarea
+    buttons:
+     - bold
+     - italic
+    maxLength: 125
+  announcementcta:
+    label: Announcement Link Text
+    type: text
+    maxLength: 25
+    width: 1/4  
+  announcementurl:
+    label: Announcement Link URL
+    type: url
+    width: 3/4
   contact:
     label: Contact Information
     type: structure

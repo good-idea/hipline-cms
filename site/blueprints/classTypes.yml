@@ -3,7 +3,7 @@ pages: true
   hide: true
   template:
     - classType
-files: true
+files: false
 fields:
   title:
     label: Title
@@ -11,3 +11,10 @@ fields:
   subpages:
     label: Class Types
     type: subpagelist
+  intro:
+    label: Intro text
+    type: textarea
+    buttons:
+      - bold
+      - italic
+    type: textarea
