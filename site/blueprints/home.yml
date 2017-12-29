@@ -29,6 +29,7 @@ fields:
     maxLength: 125
   announcementurl:
     type: text
+    icon: link
     validate: relativeOrURL
     help: Either a full external URL (https://...) or a relative internal URL starting with a slash (/classes)
   contact:
