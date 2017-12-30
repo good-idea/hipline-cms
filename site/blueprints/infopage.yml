@@ -3,6 +3,9 @@ pages: false
 preview: false
 files: true
 fields:
+  tab1:
+    type: tabs
+    label: Main Content
   title:
     label: Title
     type:  text
@@ -93,3 +96,17 @@ fields:
           secondary: Secondary
         default: primary
         required: true
+  tab2:
+    type: tabs
+    label: SEO
+  og_description:
+    label: Description
+    type: textarea
+    buttons: false
+    maxLength: 320
+  og_image:
+    label: Image
+    type: selector
+    mode: single
+    types:
+      - image

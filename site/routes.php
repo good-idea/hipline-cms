@@ -4,6 +4,17 @@ function fetchPage($uri, $children = false, $onlyVisibleChildren = true) {
   return kirby()->site()->pages()->findByURI($uri)->getPublicContent($children, $onlyVisibleChildren);
 }
 
+function getQueryParam($url, $param) {
+	$queryString = parse_url($url, PHP_URL_QUERY);
+	parse_str($queryString, $vars);
+	return $vars[$param];
+}
+
+function fetchMeta($uri) {
+	$page = kirby()->site()->pages()->find($uri);
+	return meta($page);
+}
+
 function getFilename($url) {
   $arr = explode('/', $url);
   $last = array_pop($arr);
@@ -35,11 +46,23 @@ c::set('routes', array(
 			return go('/panel');
 		}
 	),
-  array(
+	array(
+		'method' => 'GET',
+		'pattern' => 'api/meta',
+		'action' => function() {
+			$uri = getQueryParam($_SERVER['REQUEST_URI'], 'uri');
+			$meta = fetchMeta($uri);
+			consoleLog($uri);
+			return response::json(json_encode($meta));
+		}
+	),
+	array(
     'method' => 'GET',
     'pattern' => 'api/initial',
     'action' => function() {
-      $content = new StdClass();
+		$content = new StdClass();
+		$uri = getQueryParam($_SERVER['REQUEST_URI'], 'uri');
+		$content->meta = fetchMeta($uri);
       $content->home = fetchPage('/home');
 		$content->choreographers = fetchPage('/choreographers', 1)['children'];
 		$content->classes = fetchPage('/classes', 2, true);

@@ -3,8 +3,11 @@ pages: true
   hide: true
   template:
     - classType
-files: false
+files: true 
 fields:
+  tab1:
+    type: tabs
+    label: Main Content
   title:
     label: Title
     type:  text
@@ -18,3 +21,17 @@ fields:
   subpages:
     label: Class Types
     type: subpagelist
+  tab2:
+    type: tabs
+    label: SEO
+  og_description:
+    label: Description
+    type: textarea
+    buttons: false
+    maxLength: 320
+  og_image:
+    label: Image
+    type: selector
+    mode: single
+    types:
+      - image

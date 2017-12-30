@@ -7,6 +7,9 @@ files: true
       type: text
       label: Image Caption
 fields:
+  tab1:
+    type: tabs
+    label: Main Content
   title:
     type:  text
     readonly: true
@@ -83,3 +86,17 @@ fields:
       instagram:
         label: Instagram
         type: url
+  tab2:
+    type: tabs
+    label: SEO
+  og_description:
+    label: Description
+    type: textarea
+    buttons: false
+    maxLength: 320
+  og_image:
+    label: Image
+    type: selector
+    mode: single
+    types:
+      - image
