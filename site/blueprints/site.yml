@@ -17,23 +17,3 @@ fields:
     mode: single
     types:
      - image
-  description:
-    label: Meta & Opengraph Description
-    type: textarea
-    buttons: false
-    required: true
-    max: 180
-    help: Facebook share / Google result text
-  og_image:
-    label: Opengraph Image
-    type: selector
-    mode: single
-    types:
-      - image
-    required: true
-    help: Facebook share image - recommended 1200 x 630 pixels
-  google_analytics:
-    label: Google Analytics
-    type: textarea
-    buttons: false
-    help: Paste the full Google Analytics tracking code here

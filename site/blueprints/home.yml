@@ -33,6 +33,7 @@ fields:
   announcementurl:
     type: text
     icon: link
+    label: Announcement Link
     validate: relativeOrURL
     help: Either a full external URL (https://...) or a relative internal URL starting with a slash (/classes)
   contact:
@@ -95,6 +96,7 @@ fields:
     buttons: false
     maxLength: 320
   og_image:
+    help: Recommended 1200 x 600px
     label: Image
     type: selector
     mode: single
