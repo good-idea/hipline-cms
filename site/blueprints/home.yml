@@ -30,12 +30,13 @@ fields:
      - bold
      - italic
     maxLength: 125
+    help: Leave this blank if you don't want an announcement to drop down. After a user clicks on the announcement link or closes it, they won't see it again for another 7 days, or until you change the announcement text.
   announcementurl:
     type: text
     icon: link
     label: Announcement Link
     validate: relativeOrURL
-    help: Either a full external URL (https://...) or a relative internal URL starting with a slash (/classes)
+    help: Either a full external URL (https://...) or an internal URL starting with a slash (/classes). Be sure to test it on the site if you're not sure!
   contact:
     label: Contact Information
     type: structure
@@ -64,10 +65,6 @@ fields:
         label: Address Link
         type: url
         width: 1/2
-  # liability:
-  #   label: Liability Waiver
-  #   type: textarea
-  #   buttons: false
   footertext:
     label: Footer Text
     type: textarea

@@ -50,7 +50,7 @@ fields:
       - italic
       - bold
     help: Leave empty to use the MBO Description
-    maxLength: 650
+    maxLength: 450
   mbodescription:
     label: MBO Description
     type: textarea
