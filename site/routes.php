@@ -7,7 +7,10 @@ function fetchPage($uri, $children = false, $onlyVisibleChildren = true) {
 function getQueryParam($url, $param) {
 	$queryString = parse_url($url, PHP_URL_QUERY);
 	parse_str($queryString, $vars);
-	return $vars[$param];
+	if (array_key_exists($param, $vars)) {
+		return $vars[$param];
+	}
+	return '';
 }
 
 function fetchMeta($uri) {
