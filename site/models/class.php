@@ -12,6 +12,9 @@ class ClassPage extends Page {
 			}
 		}
 		$content['program'] = $this->parent()->getPublicContent();
+		if (($content['choreographers']) === '') {
+			$content['choreographers'] = [];
+		}
 		unset($content['mbodescription']);
 		return $content;
 	}
