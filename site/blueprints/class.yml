@@ -51,10 +51,10 @@ fields:
       - bold
     help: Leave empty to use the MBO Description
     maxLength: 450
-  mbodescription:
-    label: MBO Description
-    type: textarea
-    readonly: true
+  mbolink:
+    label: Sign Up link
+    type: url
+    help: Leave blank to hide the "Sign Up" button
   quote:
     label: Quote
     type: structure
