@@ -6,13 +6,8 @@ pages: true
 files: false
 fields:
   title:
-    label: Title
+    label: Section Title
     type:  text
-    width: 3/4
-  mboid:
-    label: MBO Program ID
-    width: 1/4
-    readonly: true
   description:
     label: Description
     type: textarea
