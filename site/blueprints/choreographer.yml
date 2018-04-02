@@ -61,6 +61,8 @@ fields:
     buttons:
       - italic
       - bold
+      - link
+      - email
     help: Leave empty to use the MBO Description
     maxLength: 650
   # mboBio:
