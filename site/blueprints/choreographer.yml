@@ -65,6 +65,15 @@ fields:
       - email
     help: Leave empty to use the MBO Description
     maxLength: 650
+  biolink:
+    label: Bio Link
+    type: url
+    width: 1/2
+  biolinktext:
+    label: Bio Link Text
+    type: text
+    help: optional
+    width: 1/2
   # mboBio:
   #   label: MBO Bio
   #   type: textarea
@@ -119,7 +128,7 @@ fields:
         placeholder: @mytwitter
         type: text
       instagram:
-        label: Instagram Handle
+        label: Instagram Handle or URL
         placeholder: @myinstagram
         type: text
       facebook:

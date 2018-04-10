@@ -67,7 +67,7 @@ c::set('routes', array(
 		$uri = getQueryParam($_SERVER['REQUEST_URI'], 'uri');
 		$content->meta = fetchMeta($uri);
       $content->home = fetchPage('/home');
-		$content->choreographers = fetchPage('/choreographers', 1)['children'];
+		$content->choreographers = fetchPage('/choreographers', 1);
 		$content->classes = fetchPage('/classes', 2, true);
 		$content->sourcePasses = fetchPage('/passes', 1, false);
 		$content->infoPages = array_map(function($page) {
