@@ -1,7 +1,12 @@
 <?php
 
 function fetchPage($uri, $children = false, $onlyVisibleChildren = true) {
-  return kirby()->site()->pages()->findByURI($uri)->getPublicContent($children, $onlyVisibleChildren);
+	$page = kirby()->site()->pages()->findByURI($uri);
+	if ($page) {
+		return $page->getPublicContent($children, $onlyVisibleChildren);
+	} else {
+		return null;
+	} 
 }
 
 function getQueryParam($url, $param) {
