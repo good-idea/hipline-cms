@@ -19,6 +19,7 @@ fields:
     label: Footer Page
     type: toggle
     help: If yes, this page will appear in the footer and not in the main navigation.
+    default: false
   subpages:
     label: Info Sections
     type: subpagelist
