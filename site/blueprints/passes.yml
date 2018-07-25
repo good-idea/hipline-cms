@@ -77,6 +77,41 @@ fields:
          - Button is visible
          - Button is hidden
 
+  coworkbundlesheader:
+    type: headline
+    label: Co-Work Bundles
+  coworkbundlestitle:
+    label: Section Title
+    type: text
+  coworkbundlespasses:
+    label: Passes
+    type: structure
+    entry: >
+      {{title}} - {{price}}<br>
+      {{description}}
+    fields:
+      title:
+        label: Card Title
+        type: text
+      price:
+        label: Price
+        icon: dollar
+      description:
+        label: Description
+        type: textarea
+        buttons: true
+      mbolink:
+        label: MBO link for Buy Button
+        type: url
+        help: Optional, falls back to main Passes MBO page if not supplied.
+      buybutton:
+        label: Buy button
+        type: switch
+        default: true
+        texts:
+         - Button is visible
+         - Button is hidden
+
   jprheader:
     type: headline
     label: Jungle Play Room
