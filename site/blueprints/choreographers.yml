@@ -14,6 +14,17 @@ fields:
   header:
     label: Choreographers Header
     type: text 
+  nav_settings:
+    label: Navigation Settings
+    type: select
+    width: 1/2
+    help: ''
+    default: secondary
+    required: true
+    options:
+      primary: Navigation Menu
+      secondary: Navigation Submenu
+      footer: Footer
   text:
     label: Choreographers
     type: subpagelist

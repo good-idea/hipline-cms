@@ -15,11 +15,22 @@ fields:
     mode: single
     types:
       - image
-  is_footer:
-    label: Footer Page
-    type: toggle
-    help: If yes, this page will appear in the footer and not in the main navigation.
-    default: false
+  # is_footer:
+  #   label: Footer Page
+  #   type: toggle
+  #   help: If yes, this page will appear in the footer and not in the main navigation.
+  #   default: false
+  nav_settings:
+    label: Navigation Settings
+    type: select
+    width: 1/2
+    help: ''
+    default: secondary
+    required: true
+    options:
+      primary: Navigation Menu
+      secondary: Navigation Submenu
+      footer: Footer
   subpages:
     label: Info Sections
     type: subpagelist
