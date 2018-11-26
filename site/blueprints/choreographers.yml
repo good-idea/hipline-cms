@@ -22,9 +22,9 @@ fields:
     default: secondary
     required: true
     options:
-      primary: Navigation Menu
-      secondary: Navigation Submenu
-      footer: Footer
+      primary: Show in main navigation menu
+      secondary: Show in navigation submenu
+      footer: Show in footer
   text:
     label: Choreographers
     type: subpagelist

@@ -19,9 +19,9 @@ fields:
     default: secondary
     required: true
     options:
-      primary: Navigation Menu
-      secondary: Navigation Submenu
-      footer: Footer
+      primary: Show in main navigation menu
+      secondary: Show in navigation submenu
+      footer: Show in footer
   intro:
     label: Intro text
     type: textarea
