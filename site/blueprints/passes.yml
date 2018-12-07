@@ -5,8 +5,19 @@ files: false
 fields:
   title:
     label: Page Title
-    type:  text
+    type: text
     readonly: true
+  nav_settings:
+    label: Navigation Settings
+    type: select
+    width: 1/2
+    help: ''
+    default: secondary
+    required: true
+    options:
+      primary: Show in main navigation menu
+      secondary: Show in navigation submenu
+      footer: Show in footer
   newclientheader:
     label: New Clients section
     type: headline
@@ -28,8 +39,10 @@ fields:
         icon: dollar
       description:
         label: Description
-        type: textarea
-        buttons: true
+        type: markdown
+        # buttons:
+        #   - li
+        #   - bold
       mbolink:
         label: MBO link for Buy Button
         type: url
@@ -39,8 +52,8 @@ fields:
         type: switch
         default: true
         texts:
-         - Button is visible
-         - Button is hidden
+          - Button is visible
+          - Button is hidden
 
   bundlesheader:
     type: headline
@@ -63,7 +76,7 @@ fields:
         icon: dollar
       description:
         label: Description
-        type: textarea
+        type: markdown
         buttons: true
       mbolink:
         label: MBO link for Buy Button
@@ -74,8 +87,8 @@ fields:
         type: switch
         default: true
         texts:
-         - Button is visible
-         - Button is hidden
+          - Button is visible
+          - Button is hidden
 
   coworkbundlesheader:
     type: headline
@@ -98,7 +111,7 @@ fields:
         icon: dollar
       description:
         label: Description
-        type: textarea
+        type: markdown
         buttons: true
       mbolink:
         label: MBO link for Buy Button
@@ -109,8 +122,8 @@ fields:
         type: switch
         default: true
         texts:
-         - Button is visible
-         - Button is hidden
+          - Button is visible
+          - Button is hidden
 
   jprheader:
     type: headline
@@ -133,7 +146,7 @@ fields:
         icon: dollar
       description:
         label: Description
-        type: textarea
+        type: markdown
         buttons: true
       mbolink:
         label: MBO link for Buy Button
@@ -144,8 +157,8 @@ fields:
         type: switch
         default: true
         texts:
-         - Button is visible
-         - Button is hidden
+          - Button is visible
+          - Button is hidden
 
   workshopheader:
     type: headline
@@ -168,7 +181,7 @@ fields:
         icon: dollar
       description:
         label: Description
-        type: textarea
+        type: markdown
         buttons: true
       mbolink:
         label: MBO link for Buy Button
@@ -179,8 +192,8 @@ fields:
         type: switch
         default: true
         texts:
-         - Button is visible
-         - Button is hidden
+          - Button is visible
+          - Button is hidden
 
   loveclubheadline:
     label: Love Club
@@ -203,7 +216,7 @@ fields:
         icon: dollar
       description:
         label: Description
-        type: textarea
+        type: markdown
         buttons: true
       mbolink:
         label: MBO link for Buy Button
@@ -214,5 +227,5 @@ fields:
         type: switch
         default: true
         texts:
-         - Button is visible
-         - Button is hidden
+          - Button is visible
+          - Button is hidden
