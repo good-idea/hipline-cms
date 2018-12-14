@@ -6,7 +6,6 @@ fields:
   title:
     label: Page Title
     type: text
-    readonly: true
   nav_settings:
     label: Navigation Settings
     type: select
