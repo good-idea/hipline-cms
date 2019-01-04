@@ -4,6 +4,7 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 	$content = $page->content()->toArray();
 	$content['slug'] = $page->uid();
 	$content['id'] = $page->id();
+	$content['sort'] = $page->sort();
 	$content['isVisible'] = $page->isVisible();
 	if ($page->cover()) {
 		$content['cover'] = buildImage($page->cover());
