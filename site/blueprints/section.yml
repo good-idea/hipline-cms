@@ -28,7 +28,7 @@ fields:
       footer: Show in footer
       linkOut: Link to an external URL
   outboundLink:
-    label: Outbound Link
+    label: External Link 
     type: url
     help: Set the Nav Settings to link to an external URL, and provide that URL here.
     width: 1/2
