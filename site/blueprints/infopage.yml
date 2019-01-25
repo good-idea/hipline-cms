@@ -8,7 +8,7 @@ fields:
     label: Main Content
   title:
     label: Title
-    type:  text
+    type: text
   headline:
     label: Headline
     type: text

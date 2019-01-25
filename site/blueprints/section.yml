@@ -26,6 +26,13 @@ fields:
       primary: Show in main navigation menu
       secondary: Show in navigation submenu
       footer: Show in footer
+      linkOut: Link to an external URL
+  outboundLink:
+    label: Outbound Link
+    type: url
+    help: Set the Nav Settings to link to an external URL, and provide that URL here.
+    width: 1/2
+
   subpages:
     label: Info Sections
     type: subpagelist
