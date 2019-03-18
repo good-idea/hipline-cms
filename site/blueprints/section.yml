@@ -3,8 +3,8 @@ preview: false
 pages: true
   hide: true
   template:
-    - infoPage
-    - infoCard
+    - infopage
+    - infocard
 files: true
 fields:
   title:
@@ -35,5 +35,5 @@ fields:
     width: 1/2
 
   subpages:
-    label: Info Sections
+    label: Info Sections & Cards
     type: subpagelist

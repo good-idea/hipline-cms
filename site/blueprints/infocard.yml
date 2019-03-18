@@ -16,7 +16,7 @@ fields:
     label: Carousel Settings
     options:
       enabled: Enabled
-      autoplay: Autoplay
+      # autoplay: Autoplay
   body:
     label: Text
     type: markdown

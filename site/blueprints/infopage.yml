@@ -1,4 +1,4 @@
-itle: Info Section
+title: Info Section
 pages: false
 preview: false
 files:
@@ -20,7 +20,7 @@ fields:
     help: The size of the carousel will be the same as the first image
     options:
       enabled: Enabled
-      autoplay: Autoplay
+      # autoplay: Autoplay
   intro:
     label: Intro text
     type: markdown
