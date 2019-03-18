@@ -1,7 +1,9 @@
 itle: Info Section
 pages: false
 preview: false
-files: true
+files:
+  sortable: true
+  type: image
 fields:
   tab1:
     type: tabs
@@ -12,6 +14,13 @@ fields:
   headline:
     label: Headline
     type: text
+  carousel_settings:
+    type: checkboxes
+    label: Carousel Settings
+    help: The size of the carousel will be the same as the first image
+    options:
+      enabled: Enabled
+      autoplay: Autoplay
   intro:
     label: Intro text
     type: markdown

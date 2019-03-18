@@ -1,0 +1,50 @@
+title: Card
+pages: false
+preview: false
+files:
+  sortable: true
+  type: image
+fields:
+  title:
+    label: Title
+    type: text
+  headline:
+    label: Headline
+    type: text
+  carousel_settings:
+    type: checkboxes
+    label: Carousel Settings
+    options:
+      enabled: Enabled
+      autoplay: Autoplay
+  body:
+    label: Text
+    type: markdown
+    header1: h2
+    tools:
+      - header1
+      - bold
+      - italic
+      - blockquote
+      - unorderedList
+      - email
+      - link
+  cta_headline:
+    label: CTA
+    type: headline
+  cta_label:
+    label: Button Label
+    type: text
+  cta_action:
+    label: Button Link
+    type: text
+    validate: relativeOrURL
+    help: Either a full external URL (http://...) or a relative internal URL starting with a slash (/classes/calendar). Use 'mailto:' to link users to a new email, i.e. 'mailto:sisters@myhipline.com'
+  cta_type:
+    label: Button Style
+    type: select
+    options:
+      primary: Primary
+      secondary: Secondary
+    default: primary
+

@@ -2,7 +2,9 @@ title: Info Page
 preview: false
 pages: true
   hide: true
-  template: infoPage
+  template:
+    - infoPage
+    - infoCard
 files: true
 fields:
   title:

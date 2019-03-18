@@ -1,11 +1,31 @@
 <?php
 
+
 page::$methods['getPublicContent'] = function($page, $withChildren = false, $onlyVisibleChildren = true) {
+
+
+	$getImageInfo = function($image) {
+		return buildImage($image);
+	};
+
 	$content = $page->content()->toArray();
 	$content['slug'] = $page->uid();
 	$content['id'] = $page->id();
 	$content['sort'] = $page->sort();
 	$content['isVisible'] = $page->isVisible();
+	$hasImages = $page->hasImages();
+	if ($hasImages) {
+		$images = $page->images()->sortBy('Sort', 'asc');
+		$imagesArr = [];
+		foreach ($images as $image) {
+			$image = buildImage($image);
+			array_push($imagesArr, $image);
+		};
+		$content['images'] = $imagesArr;
+	} else {
+		$content['images'] = [];
+	};
+
 	if ($page->cover()) {
 		$content['cover'] = buildImage($page->cover());
 	}
