@@ -71,7 +71,7 @@ c::set('routes', array(
 			try {
 				$content = new StdClass();
 				$uri = getQueryParam($_SERVER['REQUEST_URI'], 'uri');
-				$content->meta = fetchMeta($uri);
+				$content->meta = fetchMeta('/');
 				$content->home = fetchPage('/home');
 				$content->choreographers = fetchPage('/choreographers', 1);
 				$content->classes = fetchPage('/classes', 2, true);

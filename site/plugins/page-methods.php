@@ -3,7 +3,6 @@
 
 page::$methods['getPublicContent'] = function($page, $withChildren = false, $onlyVisibleChildren = true) {
 
-
 	$getImageInfo = function($image) {
 		return buildImage($image);
 	};
@@ -13,6 +12,24 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 	$content['id'] = $page->id();
 	$content['sort'] = $page->sort();
 	$content['isVisible'] = $page->isVisible();
+
+	$seo = [];
+	if (isset($content['seo_description'])) $seo['description'] = $content['seo_description'];
+	if (isset($content['seo_keywords'])) $seo['keywords'] = $content['seo_keywords'];
+	if ($page->seoImage()) {
+		$seo['image'] = buildImage($page->seoImage());
+	} else if ($page->cover()) {
+		$seo['image'] = buildImage($page->cover());
+	}
+	if (isset($content['seo_title'])) {
+		$seo['title'] = $content['seo_title'];
+	} else if (isset($content['title'])) {
+		$seo['title'] = $content['title'];
+	}
+
+	$seo['title'] = (string)$page->title();
+	$content['seo'] = $seo;
+
 	$hasImages = $page->hasImages();
 	if ($hasImages) {
 		$images = $page->images()->sortBy('Sort', 'asc');
@@ -63,25 +80,34 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 
 	unset($content['cover_image']);
 	unset($content['cover_video']);
+	// unset($content['seo_title']);
+	// unset($content['seo_image']);
+	// unset($content['seo_description']);
+	// unset($content['seo_keywords']);
 
 	return $content;
 };
 
 
+page::$methods['seoImage'] = function($page) {
+	$image_str = (string)$page->seo_image();
+	if (null !== $page->files()->find($image_str) && $page->files()->find($image_str)->width() > 0) {
+		return $page->files()->find($image_str);
+	} else {
+		return false;
+	}
+};
+
 page::$methods['cover'] = function($page) {
-	// if (!$page->cover_image()->exists()) return false;
 	$image_str = (string)$page->cover_image();
 	if (null !== $page->files()->find($image_str) && $page->files()->find($image_str)->width() > 0) {
 		return $page->files()->find($image_str);
-	// } else if ($page->images()->count() > 0) {
-	// 	return $page->images()->first();
 	} else {
 		return false;
 	}
 };
 
 page::$methods['coverVideo'] = function($page) {
-	// if (!$page->cover_image()->exists()) return false;
 	$video_str = (string)$page->cover_video();
 	if (null !== $page->files()->find($video_str)) {
 		return $page->files()->find($video_str);
@@ -89,16 +115,6 @@ page::$methods['coverVideo'] = function($page) {
 		return false;
 	}
 };
-
-// page::$methods['getAllImageURLs'] = function($page) {
-//
-// 	$images = [];
-// 	if ($page->images()->count() === 0) return false;
-// 	foreach ($page->images() as $imageSource) {
-// 		array_push($images, buildImage($imageSource));
-// 	}
-// 	return $images;
-// };
 
 
 ?>

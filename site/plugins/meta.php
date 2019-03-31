@@ -19,12 +19,12 @@ function meta($page) {
 
 	$pageImage = $page->images()->find($page->og_image());
 	$image = ($pageImage) ? $pageImage : $defaultImage;
-	$image = thumb($image, array('width', 1200), false);
+	// $image = thumb($image, array('width', 1200), false);
 	$meta = new StdClass();
 	
 	$meta->title = (string)$title;
 	$meta->description = (string)$description;
-	$meta->image = (string)$image;
+	$meta->image = buildImage($image);
 
 	return($meta);
 }

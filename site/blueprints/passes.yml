@@ -3,6 +3,9 @@ preview: false
 pages: false
 files: false
 fields:
+  tab1:
+    type: tabs
+    label: Main Content
   title:
     label: Page Title
     type: text
@@ -228,3 +231,24 @@ fields:
         texts:
           - Button is visible
           - Button is hidden
+  tab2:
+    type: tabs
+    label: SEO
+  seo_title:
+    type: text
+    label: SEO Title
+    help: This fall back to the page's title if empty
+  seo_description:
+    label: Description
+    type: textarea
+    buttons: false
+    maxLength: 320
+  seo_image:
+    label: Image
+    type: selector
+    mode: single
+    types:
+      - image
+  seo_keywords:
+    label: Keywords
+    type: text

@@ -91,12 +91,12 @@ fields:
   tab2:
     type: tabs
     label: SEO
-  og_description:
+  seo_description:
     label: Description
     type: textarea
     buttons: false
     maxLength: 320
-  og_image:
+  seo_image:
     label: Image
     type: selector
     mode: single

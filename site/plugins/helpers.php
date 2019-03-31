@@ -19,6 +19,7 @@ function buildImage($imageSource) {
 		'url' => $imageSource->url(),
 		'isOriginal' => true,
 	));
+	// consoleLog(gettype($imageSource->width()));
 	foreach ($imageSizes as $label => $width) {
 		if ($imageSource->width() > $width) {
 			$thumbnail = [

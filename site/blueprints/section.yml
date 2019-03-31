@@ -7,6 +7,9 @@ pages: true
     - infocard
 files: true
 fields:
+  tab1:
+    type: tabs
+    label: Main Content
   title:
     label: Title
     type:  text
@@ -33,7 +36,27 @@ fields:
     type: url
     help: This will make the menu item link to an external URL. Leave blank to
     width: 1/2
-
   subpages:
     label: Info Sections & Cards
     type: subpagelist
+  tab2:
+    type: tabs
+    label: SEO
+  seo_title:
+    type: text
+    label: SEO Title
+    help: This fall back to the page's title if empty
+  seo_description:
+    label: Description
+    type: textarea
+    buttons: false
+    maxLength: 320
+  seo_image:
+    label: Image
+    type: selector
+    mode: single
+    types:
+      - image
+  seo_keywords:
+    label: Keywords
+    type: text
