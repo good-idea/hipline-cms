@@ -80,10 +80,10 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 
 	unset($content['cover_image']);
 	unset($content['cover_video']);
-	// unset($content['seo_title']);
-	// unset($content['seo_image']);
-	// unset($content['seo_description']);
-	// unset($content['seo_keywords']);
+	unset($content['seo_title']);
+	unset($content['seo_image']);
+	unset($content['seo_description']);
+	unset($content['seo_keywords']);
 
 	return $content;
 };

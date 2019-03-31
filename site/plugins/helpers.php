@@ -9,6 +9,7 @@ function buildImage($imageSource) {
 		'400' => 400
 	];
 	$image = new StdClass();
+	if (!$imageSource) return $image;
 	$image->srcset = [];
 	$image->url = (string)$imageSource->url();
 	$image->meta = $imageSource->meta()->toArray();
