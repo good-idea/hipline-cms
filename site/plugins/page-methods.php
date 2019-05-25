@@ -8,6 +8,7 @@ page::$methods['getPublicContent'] = function($page, $withChildren = false, $onl
 	};
 
 	$content = $page->content()->toArray();
+	$content['lastModified'] = $page->modified();
 	$content['slug'] = $page->uid();
 	$content['id'] = $page->id();
 	$content['sort'] = $page->sort();
