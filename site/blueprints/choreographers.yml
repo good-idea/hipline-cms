@@ -11,6 +11,9 @@ fields:
   intro:
     label: Splash Text
     type: text
+  subtitle:
+    label: Splash Subtitle Text
+    type: text
   header:
     label: Choreographers Header
     type: text 
