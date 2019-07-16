@@ -55,6 +55,7 @@ fields:
     label: Image
     type: selector
     mode: single
+    autoselect: first
     types:
       - image
   seo_keywords:

@@ -99,6 +99,7 @@ fields:
   seo_image:
     label: Image
     type: selector
+    autoselect: first
     mode: single
     types:
       - image

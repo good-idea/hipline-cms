@@ -46,6 +46,7 @@ fields:
     maxLength: 320
   seo_image:
     label: Image
+    autoselect: first
     type: selector
     mode: single
     types:
