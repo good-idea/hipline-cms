@@ -75,7 +75,7 @@ c::set('routes', array(
 				$content->home = fetchPage('/home');
 				$content->choreographers = fetchPage('/choreographers', 1);
 				$content->classes = fetchPage('/classes', 2, true);
-				$content->sourcePasses = fetchPage('/pricing', 1, false);
+				$content->sourcePasses = fetchPage('/passes', 1, false);
 				$content->infoPages = array_map(function($page) {
 					return fetchPage((string)$page['uid'], 1);
 				}, kirby()->site()->pages()->visible()->filterBy('intendedTemplate', 'section')->toArray());
