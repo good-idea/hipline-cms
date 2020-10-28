@@ -1,0 +1,11 @@
+version: '2'
+services:
+  docker:
+    image: paolomolo/getkirby-apache:v2
+    volumes:
+      - ./content:/var/www/localhost/htdocs/content
+      - ./site:/var/www/localhost/htdocs/site
+      - ./assets:/var/www/localhost/htdocs/assets
+    ports:
+      - 8080:80
+

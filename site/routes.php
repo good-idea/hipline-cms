@@ -19,7 +19,8 @@ function getQueryParam($url, $param) {
 }
 
 function fetchSiteData() {
-  $site = kirby()->site();
+  $site = kirby()->site()->content()->toArray();
+  // var_dump($site);
   return $site;
 }
 
@@ -65,7 +66,6 @@ c::set('routes', array(
 		'action' => function() {
 			$uri = getQueryParam($_SERVER['REQUEST_URI'], 'uri');
 			$meta = fetchMeta($uri);
-			consoleLog($uri);
 			return response::json(json_encode($meta));
 		}
 	),
