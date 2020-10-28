@@ -14,8 +14,18 @@ fields:
     mode: single
     types:
      - image
-  snippetCodes:
-    label: Snippet Codes
+  headSnippets:
+    label: Snippet Codes (Head)
+    description: This content will be inserted into the <head> of the document. Be sure to include any wrapping `<script>` tags.
     type: textarea
     buttons: false
     font: monospace
+    size: large 
+  bodySnippets:
+    label: Snippet Codes (Body)
+    description: This content will be inserted into the <body> of the document.
+    type: textarea
+    buttons: false
+    font: monospace
+    size: large 
+ 

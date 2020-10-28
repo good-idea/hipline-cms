@@ -18,6 +18,11 @@ function getQueryParam($url, $param) {
 	return '';
 }
 
+function fetchSiteData() {
+  $site = kirby()->site();
+  return $site;
+}
+
 function fetchMeta($uri) {
 	$page = kirby()->site()->pages()->find($uri);
 	return meta($page);
@@ -71,6 +76,7 @@ c::set('routes', array(
 			try {
 				$content = new StdClass();
 				$uri = getQueryParam($_SERVER['REQUEST_URI'], 'uri');
+				$content->site = fetchSiteData();
 				$content->meta = fetchMeta('/');
 				$content->home = fetchPage('/home');
 				$content->choreographers = fetchPage('/choreographers', 1);
