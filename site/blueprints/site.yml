@@ -17,3 +17,5 @@ fields:
   snippetCodes:
     label: Snippet Codes
     type: textarea
+    buttons: false
+    font: monospace
