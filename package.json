@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "npm-run-all --parallel kirby",
-		"bootstrap": "yarn bootstrap:dirs && yarn bootstrap:modules && yarn sync",
+		"bootstrap": "yarn install && yarn bootstrap:dirs && yarn bootstrap:modules && yarn sync",
 		"bootstrap:dirs": "mkdir -p content && mkdir -p _working/content-backups/local",
 		"bootstrap:modules": "git submodule update --init --recursive",
 		"kirby": "php -S 127.0.0.1:8090 -t ./",
