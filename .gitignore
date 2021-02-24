@@ -4,3 +4,5 @@
 /thumbs/*
 content/*
 .sync-content.sh
+
+node_modules
