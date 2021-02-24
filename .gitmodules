@@ -1,3 +1,9 @@
 [submodule "site/plugins/field-engineer"]
 	path = site/plugins/field-engineer
 	url = https://github.com/jenstornell/field-engineer
+[submodule "panel"]
+	path = panel
+	url = git@github.com:getkirby-v2/panel
+[submodule "kirby"]
+	path = kirby
+	url = git@github.com:getkirby-v2/kirby
