@@ -6,3 +6,4 @@ content/*
 .sync-content.sh
 
 node_modules
+yarn-error.log

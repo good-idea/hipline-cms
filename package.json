@@ -5,7 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "npm-run-all --parallel kirby",
-		"kirby": "php -S 127.0.0.1:8090 -t ./"
+		"bootstrap": "yarn bootstrap:dirs && yarn boostrap:modules && yarn sync",
+		"boostrap:dirs": "mkdir content && mkdir -p _working/content-backups/local",
+		"bootstrap:modules": "git submodule update --init --recursive",
+		"kirby": "php -S 127.0.0.1:8090 -t ./",
+		"sync": "sh ./.sync-content.sh down"
 	},
 	"keywords": [],
 	"author": "",
