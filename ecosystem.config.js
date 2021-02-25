@@ -6,6 +6,7 @@ module.exports = {
 			ref: 'origin/main',
 			repo: 'git@github.com:good-idea/hipline-cms',
 			path: '/home/appolonia/panel.myhipline.com',
+			'post-deploy': 'echo "CMS has been updated"',
 		},
 	},
 }
