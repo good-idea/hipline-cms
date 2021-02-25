@@ -9,7 +9,8 @@
 		"bootstrap:dirs": "mkdir -p content && mkdir -p _working/content-backups/local",
 		"bootstrap:modules": "git submodule update --init --recursive",
 		"kirby": "php -S 127.0.0.1:8090 -t ./",
-		"sync": "sh ./.sync-content.sh down"
+		"sync": "sh ./.sync-content.sh down",
+		"deploy": "git push origin main && pm2 deploy production"
 	},
 	"keywords": [],
 	"author": "",
